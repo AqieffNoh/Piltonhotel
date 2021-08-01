@@ -23,10 +23,10 @@ include('includes/navbar.php');
                 {
                     $id = $_POST['edit_id'];
                 
-                    $query = "SELECT * FROM room_types WHERE RoomtypeID='$id'";
+                    $query = "SELECT * FROM room_types WHERE RoomTypeID='$id'";
                     $query_run = mysqli_query($connection, $query);
 
-                    foreach($query_run as $row)
+                    foreach($query_run as $row) 
                     {
                     ?>  
                         <form action="roomcode.php" method="post" enctype="multipart/form-data">
