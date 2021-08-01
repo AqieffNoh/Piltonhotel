@@ -72,9 +72,8 @@ if(isset($_POST['editroomtypebtn']))
         $id = $_POST['edit_id'];
         $desc = $_POST['edit_Desc'];
         $image = $_FILES['image']['name'];
-        $date = date('Y-m-d', strtotime($_POST['edit_Date']));;
 
-        $query = "UPDATE room_types SET Description='$desc', Picture='$image',WHERE RoomTypeID='$id' ";
+        $query = "UPDATE room_types SET Description='$desc', Picture='$image' WHERE RoomTypeID='$id' ";
         $query_run = mysqli_query($connection, $query);
         
         
