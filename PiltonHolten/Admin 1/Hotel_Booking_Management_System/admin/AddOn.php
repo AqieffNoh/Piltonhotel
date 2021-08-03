@@ -24,6 +24,7 @@
         </div>
         <div class="form-group">
         <label>Price</label>
+            <input type="number" name="Price" class="form-control" step=".01" required>
         </div>
       </div>
       <div class="modal-footer">
