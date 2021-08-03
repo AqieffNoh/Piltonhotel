@@ -54,7 +54,30 @@ if(isset($_GET['room'])){
     <?php
     }
 }?>
-
+<form class="form-inline" method="POST" action="index.php">
+            <div class="search-date boxing">            
+                <label for="checkin">
+                    <p class="d-inline">Check In
+                        <input type="date" id="checkin" name="checkin"> 
+                    </p>
+                </label>
+            </div>
+            <div class="search-date boxing">
+                <label for="checkout">
+                    <p class="d-inline">Check Out
+                        <input type="date" id="checkout" name="checkout"> 
+                    </p>
+                </label>
+            </div>
+            <div class="col-md-3 boxing">
+                <label for="pax_no">                   
+                    <p class="d-inline">Travellers 
+                        <input id="pax_no" name="pax_no" type="number" placeholder="Pax No." min="1" >
+                    </p>
+                </label>
+            </div>
+            <button type="submit">Search</button>
+        </form>
 
 
 
