@@ -13,7 +13,7 @@ session_start();
         if (!is_numeric($email)) {
             
             $query = "select * from cust_acc where email = '$email' and password = '$password'";
-            $result = mysqli_query($con, $query);
+            $result = mysqli_query($conn, $query);
 
             if ($result) {
                 if($result && mysqli_num_rows($result) > 0){

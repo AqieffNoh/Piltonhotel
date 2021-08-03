@@ -228,7 +228,7 @@ include "searchBar.php";
       <div class="card-flex-container">
                 <div class="card">
                     <div class="card-img">
-                    <img src="seller/images/<?php echo $row['picture'];?>" alt="Merch Image"  height='250px'>
+                    <img src="../seller/images<?php echo $row['picture'];?>" alt="Merch Image"  height='250px'>
                     </div>
                     <div class="card-info">
                     <h1><?php echo $row['merch_name']; ?></h1>

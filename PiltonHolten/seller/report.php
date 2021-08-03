@@ -1,6 +1,6 @@
 <?php
-    include_once "header.php";
-    include_once "includes/dbh.inc.php";
+    include "header.php";
+    include "includes/dbh.inc.php";
 ?>
 
 <main>

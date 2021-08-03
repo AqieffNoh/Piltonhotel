@@ -51,7 +51,7 @@ if(isset($_POST['login_submit'])) {
                                 $_SESSION["s_id"] = $row["s_id"];
                                 $_SESSION["s_email"] = $row["s_email"];
                                 $_SESSION["s_name"] = $row["s_name"];
-                                header("Location: ../seller/index.php?login=success");
+                                header("Location: C:\xampp\htdocs\PiltonHotel\Piltonhotel\PiltonHolten\seller\index.php?login=success");
                                 exit();
                             }
                             else {

@@ -3,7 +3,7 @@ session_start();
 
     include("connection.php");
     $roomdisplay = display($con);
-/?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">

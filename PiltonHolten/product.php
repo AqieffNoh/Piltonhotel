@@ -55,18 +55,6 @@ if( isset($_GET['product']) ) {
 
         while ($product = mysqli_fetch_array($stmt)) {
 
-            // $stmt = $conn->prepare("SELECT merch_id, s_id, category_id, merch_name, merch_desc, picture, price FROM merch WHERE merch_name= '$merch'");
-            // $product = $stmt->fetch();
-           
-            //page view
-            // $now = date('Y-m-d');
-            // if($product['date_view'] == false || is_null($product['date_view'])){
-            //     $stmt = $conn->prepare("UPDATE merch WHERE merch_id=:id");
-            //     $stmt->execute(['id'=>$product['merch_id']]);
-            // }
-            // else{
-            //     $stmt = $conn->prepare("UPDATE merch SET date_view=:now WHERE merch_id=:id");
-            //     $stmt->execute(['id'=>$product['merch_id'], 'now'=>$now]);
             ?>
 
             <!-- Main content -->
@@ -85,15 +73,6 @@ if( isset($_GET['product']) ) {
                                   <div class="form-group">
                                       <div class="input-group col-sm-5">
                                           
-                                          <!-- <span class="input-group-btn">
-                                              <button type="button" id="minus" class="btn btn-default btn-flat btn-lg"><i class="fa fa-minus"></i></button>
-                                          </span> -->
-                                          <!-- <p>Enter amount that you wish: </p>
-                                            <input type="text" name="quantity" id="quantity" class="form-control input-lg" value="1"> -->
-                                          <!-- <span class="input-group-btn">
-                                              <button type="button" id="add" class="btn btn-default btn-flat btn-lg"><i class="fa fa-plus"></i>
-                                              </button>
-                                          </span> -->
                                           <input type="hidden" value="<?php echo $product['merch_id']; ?>" name="merch_id">
                                           <input type="hidden" value="<?php echo $product['s_id']; ?>" name="s_id">
                                           <button type="submit" name="add" class="btn btn-primary btn-lg btn-flat"><i class="fas fa-cart-plus"></i> Add to Cart</button>

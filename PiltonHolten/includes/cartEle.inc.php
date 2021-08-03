@@ -28,5 +28,6 @@ function cartElement($productimg, $productname, $productprice, $productid){
     echo  $element;
 }
 
+
 ?>
 
