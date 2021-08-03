@@ -1,5 +1,5 @@
 <?php
-  include ("includes/dbh.inc.php");
+  include ("includes/connection.php");
   include ('includes/cartEle.inc.php');
   include_once "header.php";
 

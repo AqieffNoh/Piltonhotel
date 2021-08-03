@@ -1,0 +1,214 @@
+/*White #e0fff4
+Pine Green #3a7a87
+*/
+
+/* global styles*/
+html{
+  box-sizing: border-box;
+}
+
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+  
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}  
+
+li{
+    display: inline-block
+}
+
+body{
+  color: #14282c;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+header img{
+  width: 100%;
+  top: 0;
+}
+
+.for-background{
+  width: 100%;
+  background-image: url("images\background1.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+
+/* main{ */
+  /* width: 1000px; */
+  /* margin-top: -8px; Add a top margin to avoid content overlay 
+}
+
+footer{
+  text-align: center;
+  font-size: 100px;
+}
+
+.just-header{
+  margin-left: 260px;
+}
+
+/* --------------------------------------------------------------------------------------Navbar container */
+.navbar ~ div{  
+    overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    background-color: #e0fff4;
+    font-family: Arial;
+}
+
+/* Links inside the navbar */
+.navbar a{
+    float: left;
+    font-size: 20px;
+    font-weight: 400px;
+    color: #3a7a87;
+    background-color: #e0fff4;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav-right{
+  margin-left: auto;
+}
+
+  /* The dropdown container */
+
+/*-----------------------------------------------------------------------------------------------Search Bar*/
+
+/*----------------------------------------------------------------------------------------HO's pilton*/
+.boxing{
+  height: 15vh;
+  padding-left: 40px;
+}
+
+/* Style the form - display items horizontally */
+.form-inline {
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  width: 1000px;
+}
+
+.form-inline div{
+  flex: 1 1 100px;
+}
+
+/* Add some margins for each label */
+.boxing label {
+  margin: 5px 10px 5px 0;
+}
+
+.search-date ~ label{
+  display: flex;
+  flex-flow: row nowrap;
+  align-content: center;
+}
+
+/* Style the input fields */
+.d-inline input {
+  vertical-align: middle;
+  margin: 5px 5px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+/* Style the submit button */
+.form-inline button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  border: 1px solid white;
+  background-color: #e0fff4;
+  color: #3a7a87;
+}
+
+
+.form-inline button:hover {
+  background-color: #2f4d53;
+  color: #e0fff4;
+}
+
+/* Add responsiveness - 
+  display the form controls vertically instead of horizontally on screens that are less than 800px wide */
+@media (max-width: 800px) {
+  .form-inline input {
+    margin: 10px 0;
+  }
+
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+
+
+/* ----------------------------------------------------------------------------------------------display rooms */
+.card-flex-container{
+  /* display: inline-block; */
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  width: 1000px;
+  margin: 0 auto;
+  gap: 5px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  height: 539;
+  margin: 15px;
+  text-align: center;
+  font-family: arial;
+}
+
+.card-img{
+  max-width: 300px;
+  margin: none;
+}
+
+.card p:last-of-type{ /*------------just added----------------*/
+  padding: 0 5% 10px;
+}
+
+.card-info > h1{
+  margin: 0;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+  margin: 0;
+  padding-top: 0%;
+  padding-bottom: 0%;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
