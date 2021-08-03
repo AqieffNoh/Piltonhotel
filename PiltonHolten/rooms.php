@@ -5,9 +5,9 @@ session_start();
     include("functions.php");
     include("header.php");
 
-    $user_data = check_login($con);
+    $user_data = check_login($conn);
     // $bookdeets = search($con);
-	$roomdisplay = display($con);
+	$roomdisplay = display($conn);
     $date_now = date('d-m-y');
     
 ?>
@@ -26,8 +26,8 @@ session_start();
     
 <?php
 
-    $con = mysqli_connect("localhost", "upandrunning", "super");
-    $db = mysqli_select_db($con, 'up_and_running');
+    $conn = mysqli_connect("localhost", "upandrunning", "super");
+    $db = mysqli_select_db($conn, 'up_and_running');
 
 if(isset($_GET['room'])){
 
@@ -35,7 +35,7 @@ if(isset($_GET['room'])){
 
 
     $query = "SELECT room_type, test_room.roomtype_id, room_desc, pax_no, price, room_pic FROM test_room INNER JOIN room ON room.roomtype_id = test_room.roomtype_id WHERE room_type = '$room' LIMIT 1";
-    $result = mysqli_query($con, $query);
+    $result = mysqli_query($conn, $query);
 
     while($roomdisplay = mysqli_fetch_array($result)){
     ?>            
@@ -54,7 +54,30 @@ if(isset($_GET['room'])){
     <?php
     }
 }?>
-
+<form class="form-inline" method="POST" action="index.php">
+            <div class="search-date boxing">            
+                <label for="checkin">
+                    <p class="d-inline">Check In
+                        <input type="date" id="checkin" name="checkin"> 
+                    </p>
+                </label>
+            </div>
+            <div class="search-date boxing">
+                <label for="checkout">
+                    <p class="d-inline">Check Out
+                        <input type="date" id="checkout" name="checkout"> 
+                    </p>
+                </label>
+            </div>
+            <div class="col-md-3 boxing">
+                <label for="pax_no">                   
+                    <p class="d-inline">Travellers 
+                        <input id="pax_no" name="pax_no" type="number" placeholder="Pax No." min="1" >
+                    </p>
+                </label>
+            </div>
+            <button type="submit">Search</button>
+        </form>
 
 
 
