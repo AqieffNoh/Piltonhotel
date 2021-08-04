@@ -75,7 +75,7 @@ if( isset($_GET['product']) ) {
                                   <div class="form-group">
                                       <div class="col-sm-6">
                                         <h1 class="page-header"><?php echo $product['merch_name']; ?></h1>
-                                        <input class="quan"type="text" name="product_qty" value="1" size="3" />
+                                        <input class="quan"type="number" name="product_qty" value="1" size="3" />
                                         <h3><b> RM  <?php echo ($product['price']); ?></b></h3>
                                         <p><b>Category:</b> <a href="category.php?category=<?php echo $product['category_name']; ?>"><?php echo $product['category_name']; ?></a></p>
                                         <p><b>Seller:</b> <a href="sellerMerch.php?seller=<?php echo $product['s_name']; ?>"><?php echo $product['s_name']; ?></a></p>
