@@ -24,131 +24,118 @@ session_start();
 </head>
 <body>
     
-<?php
+<div class="row">
+  <div class="column-left">
+  <?php
 
     $conn = mysqli_connect("localhost", "upandrunning", "super");
     $db = mysqli_select_db($conn, 'up_and_running');
 
-if(isset($_GET['room'])){
+    
+
+
+    if(isset($_GET['room'])){
 
     $room = $_GET['room'];
 
-
-    $query = "SELECT room_type, test_room.roomtype_id, room_desc, pax_no, price, room_pic FROM test_room INNER JOIN room ON room.roomtype_id = test_room.roomtype_id WHERE room_type = '$room' LIMIT 1";
+    $query = "SELECT room_type, test_room.roomtype_id, room.room_id, room_desc, pax_no, price, room_pic FROM test_room JOIN room ON room.roomtype_id = test_room.roomtype_id WHERE room_type = '$room' LIMIT 1";
+    
     $result = mysqli_query($conn, $query);
 
     while($roomdisplay = mysqli_fetch_array($result)){
     ?>            
-    <div class="card">
-        <div class="card-img">
+    <!-- <div class="card-rooms">
+        <div class="card-img"> -->
             <?php echo '<img src="data:image;base64,'. base64_encode($roomdisplay['room_pic']) .'" alt="room pic" style="width:100%" >'; ?>
             <img src="" alt="" style="width:100%">
-        </div>
+            
+        <!-- </div>
         <div class="card-info">
             <h1><?php echo $roomdisplay['room_type']; ?></h1>
             <p class="price">RM <?php echo $roomdisplay['price']; ?></p>
             <p><?php echo $roomdisplay['room_desc'] ?></p>
         </div>
         <button><a href="rooms.php?room=<?php echo $roomdisplay['roomtype_id']; ?>" style="text-decoration: none;"></a>Book Now</button>
+    </div> -->
     </div>            
+    
+    <div class="column-right">
+    <form action="checkout.php" method="POST">
+      <div class="container">
+        <input type="text" name="room_id" style="color:#a8a6b1; display:none;" value="<?php echo $roomdisplay['room_id']?>"></input>
+        <input type="text" name="roomtype_id" style="color:#a8a6b1; display:none;" value="<?php echo $roomdisplay['roomtype_id']?>"></input>
+        <input type="number" name="price" style="color:#a8a6b1; display:none;" value="<?php echo $roomdisplay['price']?>"></input>
+        <h1><?php echo $roomdisplay['room_type']; ?></h1>
+        <p><?php echo $roomdisplay['room_desc'] ?></p>
+        <p class="price">RM <?php echo $roomdisplay['price'];?></p>
+        <hr>
+
+        <label for="checkin"><b>Check In Date</b></label>
+        <input type="date" id="checkin" name="checkin" required>
+
+        <label for="checkout"><b>Check Out Date</b></label>
+        <input type="date" id="checkout" name="checkout" required>
+
+        <label for="pax_no"><b>Number of People</b></label>
+        <input type="number" placeholder="1" id="pax_no" name="pax_no" required>
+        <hr>
+        
+        <button type="submit" class="bookroom" name="book-checkout"><a href="checkout.php style="text-decoration: none;></a>Book Room</button>
+
+        <!-- <button><a href="rooms.php?room=/*<?php echo $roomdisplay['roomtype_id']; ?>" style="text-decoration: none;"></a>Book Now</button> -->
+        <!-- <button><a class="btn margin-center" href="#modal" style="text-decoration: none;"></a>Book Now</button> -->
+        <!-- <button type="button" onclick="document.getElementById('id01').style.display='block'"></button> -->
+
+      </div>
+    </form>
     <?php
     }
-}?>
-<form class="form-inline" method="POST" action="index.php">
-            <div class="search-date boxing">            
-                <label for="checkin">
-                    <p class="d-inline">Check In
-                        <input type="date" id="checkin" name="checkin"> 
-                    </p>
-                </label>
-            </div>
-            <div class="search-date boxing">
-                <label for="checkout">
-                    <p class="d-inline">Check Out
-                        <input type="date" id="checkout" name="checkout"> 
-                    </p>
-                </label>
-            </div>
-            <div class="col-md-3 boxing">
-                <label for="pax_no">                   
-                    <p class="d-inline">Travellers 
-                        <input id="pax_no" name="pax_no" type="number" placeholder="Pax No." min="1" >
-                    </p>
-                </label>
-            </div>
-            <button type="submit">Search</button>
-        </form>
+}
+?>
 
-
-
-
-<div class="row">
-  <div class="col-75">
-    <div class="container">
-      <form action="/action_page.php">
-
-        <div class="row">
-          <div class="col-50">
-            <h3>Billing Address</h3>
-            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-            <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
-            <label for="email"><i class="fa fa-envelope"></i> Email</label>
-            <input type="text" id="email" name="email" placeholder="john@example.com">
-            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
-            <label for="city"><i class="fa fa-institution"></i> City</label>
-            <input type="text" id="city" name="city" placeholder="New York">
-
-            <div class="row">
-              <div class="col-50">
-                <label for="state">State</label>
-                <input type="text" id="state" name="state" placeholder="NY">
-              </div>
-              <div class="col-50">
-                <label for="zip">Zip</label>
-                <input type="text" id="zip" name="zip" placeholder="10001">
-              </div>
-            </div>
+  <!-- </div>
+  <div class="column-right">
+    <form class="form-inline" method="POST" action="index.php">
+        <div class="search-date boxing">            
+            <label for="checkin">
+              <p class="d-inline">Check In Date
+                <input type="date" id="checkin" name="checkin"> 
+              </p>
+            </label>
           </div>
-
-          <div class="col-50">
-            <h3>Payment</h3>
-            <label for="fname">Accepted Cards</label>
-            <div class="icon-container">
-              <i class="fa fa-cc-visa" style="color:navy;"></i>
-              <i class="fa fa-cc-amex" style="color:blue;"></i>
-              <i class="fa fa-cc-mastercard" style="color:red;"></i>
-              <i class="fa fa-cc-discover" style="color:orange;"></i>
-            </div>
-            <label for="cname">Name on Card</label>
-            <input type="text" id="cname" name="cardname" placeholder="John More Doe">
-            <label for="ccnum">Credit card number</label>
-            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-            <label for="expmonth">Exp Month</label>
-            <input type="text" id="expmonth" name="expmonth" placeholder="September">
-
-            <div class="row">
-              <div class="col-50">
-                <label for="expyear">Exp Year</label>
-                <input type="text" id="expyear" name="expyear" placeholder="2018">
-              </div>
-              <div class="col-50">
-                <label for="cvv">CVV</label>
-                <input type="text" id="cvv" name="cvv" placeholder="352">
-              </div>
-            </div>
+        <div class="search-date boxing">
+            <label for="checkout">
+              <p class="d-inline">Check Out Date
+                <input type="date" id="checkout" name="checkout"> 
+              </p>
+            </label>
           </div>
+        <div class="col-md-3 boxing">
+            <label for="pax_no">                   
+              <p class="d-inline">Number of People 
+                <input id="pax_no" name="pax_no" type="number" placeholder="Pax No." min="1" >
+              </p>
+            </label>
+          </div>
+        <button type="submit">Book Room</button>
+    </form>
 
-        </div>
-        <input type="submit" value="Continue to checkout" class="btn">
-      </form>
-    </div>
-  </div>
+  </div> -->
+
+ 
+
+</div>
+</div>
+
+
+  
 
   
 </div>
 </body>
+
 <footer>
     <h1 style=" font: size 1000px; weight 700px">Foot.</h1>
 </footer>
+
 </html>
