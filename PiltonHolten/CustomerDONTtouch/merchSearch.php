@@ -114,10 +114,6 @@ clear:both;
 .card {
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 max-width: 300px;
-/* width: 300px; */
-float: left;
-  width: 33.33%;
-  padding: 5px;
 height: 539;
 margin: 15px;
 text-align: center;
@@ -126,9 +122,9 @@ font-family: arial;
 
 .card-img{
 max-width: 300px;
-max-height: 300px;
 margin: none;
 }
+
 .card p:last-of-type{ /*------------just added----------------*/
 padding: 0 5% 10px;
 }

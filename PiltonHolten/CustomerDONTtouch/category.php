@@ -1,5 +1,7 @@
 <?php
     include ("includes/dbh.inc.php");
+    // $cate = $_GET['category'];
+
     include_once "header.php";
 ?>
 
@@ -80,6 +82,7 @@ box-sizing: border-box;
   text-align: center;
 }
 
+
 .sidebar a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
@@ -114,10 +117,6 @@ clear:both;
 .card {
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 max-width: 300px;
-/* width: 300px; */
-float: left;
-  width: 33.33%;
-  padding: 5px;
 height: 539;
 margin: 15px;
 text-align: center;
@@ -126,9 +125,9 @@ font-family: arial;
 
 .card-img{
 max-width: 300px;
-max-height: 300px;
 margin: none;
 }
+
 .card p:last-of-type{ /*------------just added----------------*/
 padding: 0 5% 10px;
 }
@@ -176,13 +175,13 @@ opacity: 0.7;
 <?php
 include "searchBar.php";
 ?>
-</div>
+</div> 
 
 <section style="background-color:#DEF2F1">
 <div class="sidebar">
 <h1>Categories</h1>
   
-<?php
+        <?php
         $sql = mysqli_query($conn, "SELECT * FROM merch_category");
         ?>
 
@@ -211,68 +210,45 @@ include "searchBar.php";
 </div>
 </section>
 
+<!-- main -->
 
-<!-- Main content -->
+<?php
+    $cate=$_GET['category'];
+
+?>
+
 <div>
-	            <?php
+<br>
+		            <h2 style="text-align:center">Category for: <?php echo $cate; ?></h2>
 
-if(isset($_POST['submitSearch']))
-{
-    // id to search
-    $search = $_POST['keyword'];
-    
-    // mysql search query
-    $sql = "SELECT COUNT(*) AS numrows FROM `merch` WHERE merch_name LIKE '%$search%' OR merch_desc LIKE '%$search%'";
-    
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_array($result);
-    // if id exist 
-    // show data in inputs
-    if($row['numrows'] < 1)
-    {
-        echo '<h2 class="page-header" style="text-align:center">No results found for <i>'.$_POST['keyword'].'</i></h2>';
-    }
-    else{
-        echo '<h2 class="page-header" style="text-align:center">Search results for <i>'.$_POST['keyword'].'</i></h2>';
-        // while ($row = mysqli_fetch_array($result))
-        try{
-            $inc = 3;	
-        $stmt = mysqli_query($conn, "SELECT `merch_id`, `merch_name`, `picture`, `price`, `merch_desc` FROM `merch` WHERE merch_name LIKE '%$search%' OR merch_desc LIKE '%$search%'");
- 
-        foreach ($stmt as $row) {
-            $highlighted = preg_filter('/' . preg_quote($_POST['keyword'], '/') . '/i', '<b>$0</b>', $row['merch_name']);
-            $image = (!empty($row['picture'])) ? 'seller/images/'.$row['picture'] : 'images/noimage.png';
-            $inc = ($inc == 3) ? 1 : $inc + 1;
-               if($inc == 1) echo "<div class='row'>";
-               echo "
-                        <div class='card'>
-
-                               <img src='".$image."' width='100%' height='250px' class='thumbnail'>
-                               <p>".$highlighted."</p>
-                               <p class='price'>RM ".($row['price'])."</p>
-                               <p><button><a href='product.php?product=".$row['merch_name']."' style='color: white;'>Details</a></button></p>
-                   </div>
-               ";
-               if($inc == 3) echo "</div>";
-        }
-        if($inc == 1) echo "<div class='col-sm-4'></div><div class='col-sm-4'></div></div>"; 
-        if($inc == 2) echo "<div class='col-sm-4'></div></div>";
-        
-    }
-    catch(Exception $e){
-        echo "There is some problem in connection: " . $e->getMessage();
-    }
-}
-    
-    mysqli_close($conn);
-}
-
-?> 
-	         </div>
+                    <?php
+	
+                        $sql = mysqli_query($conn,"SELECT merch_id, category_name, picture, merch_name, price FROM merch INNER JOIN merch_category ON merch_category.category_id=merch.category_id WHERE category_name = '$cate'");
+                        
+                        while ($row = mysqli_fetch_array($sql)) {
+                            $image = (!empty($row['picture'])) ? 'seller/images/'.$row['picture'] : 'seller/images/noimage.png';?>
+                               
+                               <div class="card">
+                                    <img src=<?php echo $image ?> width='100%' height='250px' class='thumbnail'>
+                                    <h1><?php echo $row['merch_name']; ?></h1>
+                                    <p class="price">RM <?php echo ($row['price']); ?></p>
+                                    <p><button><a href="product.php?product=<?php echo $row['merch_name']; ?>" style="color: white;">Details</a></button></p>
+                                    <input type="hidden" name="Product_ID" value=<?php echo $row['merch_id'];?> >
+                                    <input type="hidden" name="type" value="add" >
+                                    <input type="hidden" name="return_url" value="'.$current_url.'" >
+                                </div>
+                               <?php
+                        }
+                 
+                            mysqli_close($conn);  
+                           
+		       		?> 
 	        	
+	        </div>
+            </div>
+    </section>
+          </main>
 
-<?php include 'includes/scripts.inc.php'; ?>
-</main>
 <?php
     include_once "footer.php";
 ?>
