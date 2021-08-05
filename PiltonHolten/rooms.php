@@ -5,9 +5,9 @@ session_start();
     include("functions.php");
     include("header.php");
 
-    $user_data = check_login($conn);
+    $user_data = check_login($con);
     // $bookdeets = search($con);
-	$roomdisplay = display($conn);
+	  $roomdisplay = display($con);
     $date_now = date('d-m-y');
     
 ?>
@@ -62,6 +62,7 @@ session_start();
     <div class="column-right">
     <form action="checkout.php" method="POST">
       <div class="container">
+        <input type="text" name="checkoutcust_id" style="color:#a8a6b1; display:none;" value="<?php echo $user_data['cust_id']?>"></input>
         <input type="text" name="room_id" style="color:#a8a6b1; display:none;" value="<?php echo $roomdisplay['room_id']?>"></input>
         <input type="text" name="roomtype_id" style="color:#a8a6b1; display:none;" value="<?php echo $roomdisplay['roomtype_id']?>"></input>
         <input type="number" name="price" style="color:#a8a6b1; display:none;" value="<?php echo $roomdisplay['price']?>"></input>
@@ -79,7 +80,7 @@ session_start();
         <label for="pax_no"><b>Number of People</b></label>
         <input type="number" placeholder="1" id="pax_no" name="pax_no" required>
         <hr>
-        
+        <!-- <a href="checkout.php style="text-decoration: none;></a> -->
         <button type="submit" class="bookroom" name="book-checkout"><a href="checkout.php style="text-decoration: none;></a>Book Room</button>
 
         <!-- <button><a href="rooms.php?room=/*<?php echo $roomdisplay['roomtype_id']; ?>" style="text-decoration: none;"></a>Book Now</button> -->
@@ -135,7 +136,7 @@ session_start();
 </body>
 
 <footer>
-    <h1 style=" font: size 1000px; weight 700px">Foot.</h1>
+    <h1 style=" font: size 1000px; ">Foot.</h1>
 </footer>
 
 </html>

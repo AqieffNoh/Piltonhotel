@@ -117,7 +117,7 @@ h3{
     $fname=$user_data['fname'];
     $lname=$user_data['lname'];
 
-    $query=mysqli_query($conn,"SELECT * FROM cust_acc WHERE cust_id='$custid'") or die(mysqli_error());
+    $query=mysqli_query($conn,"SELECT * FROM cust_acc WHERE cust_id='$custid'") or die(mysqli_error($conn));
     $row=mysqli_fetch_array($query);
   ?>
 
@@ -125,7 +125,7 @@ h3{
           
 
           <!-- user profile form -->
-          <form class="userProfile" action="" method="POST" enctype="multipart/form-data" id="displayProfile">
+          <form class="userProfile" action="u_profileEdit.php" method="POST" enctype="multipart/form-data" id="displayProfile">
 
           <div name="customerID" style="display: none;"z>
                 <label name="customerID">Customer ID</label>
@@ -146,9 +146,9 @@ h3{
                       
                   <div class="row">
                         <label class="form-control-label" for="firstname">First Name</label>
-                        <input type="text" id="firstname" name="firstname" class="form-control form-control-alternative" placeholder="First name" value="<?php echo $fname?>" >
+                        <input type="text" id="firstname" name="firstname" class="form-control form-control-alternative" placeholder="First name" value="<?php echo $fname?>" readonly>
                         <label class="form-control-label" for="lastname">Last Name</label>
-                        <input type="text" id="lastname" name="lastname" class="form-control form-control-alternative" placeholder="First name" value="<?php echo $lname?>" >
+                        <input type="text" id="lastname" name="lastname" class="form-control form-control-alternative" placeholder="First name" value="<?php echo $lname?>" readonly>
                     </div>
 
                 </div>
@@ -178,9 +178,6 @@ h3{
 <?php
 if (isset($_POST['update'])){
 
-$id = $_POST['customerID'];
-$fname = $_POST['firstname'];
-$lname = $_POST['lastname'];
 $phone = $_POST['phone'];
 $email = $_POST['email'];
 
