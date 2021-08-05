@@ -1,14 +1,14 @@
 <?php
 
-// $dbhost = "localhost";
-// $dbuser = "upandrunning";
-// $dbpass = "super";
-// $dbname = "up_and_running";
+$dbhost = "localhost";
+$dbuser = "root";
+$dbpass = "";
+$dbname = "up_and_running";
 
-// if(!$con = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)){ // "!" means not, if not connected...
+if(!$con = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)){ // "!" means not, if not connected...
 
-//     die("failed to connect.");
-// }
+    die("failed to connect.");
+}      
 
 $serverName ="localhost";
 $dBUsername ="root";
