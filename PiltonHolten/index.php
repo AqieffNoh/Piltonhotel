@@ -14,7 +14,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" type="text/css" href="merchpage.css" >
+    <!-- <link rel="stylesheet" type="text/css" href="merchpage.css" > -->
     <title>Welcome to Pilton Hotel</title>
 </head>
 <body>
@@ -27,9 +27,10 @@ session_start();
         <p>Enjoy your vacation with Pilton<br></p>
         <p>*Please note that you will need to login or sign up before booking.<br></p>
     </div>
-</section>
+    </section>
+
 <h1>Featured Rooms</h1>
-    <section >
+    <section class="card-flex-container">
             <?php
 
                 // $conn = mysqli_connect("localhost", "upandrunning", "super");
@@ -52,12 +53,11 @@ session_start();
                     </div>
                     <button><a href="login.php" style="text-decoration: none; color: #e0fff4;">Book Now</a></button>
                 </div>    
-                </section>
+                
                 <?php
-                }
-            
+                }            
             ?>
-
+</section>
     </main>
 
 

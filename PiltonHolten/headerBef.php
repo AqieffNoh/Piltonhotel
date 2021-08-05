@@ -6,7 +6,7 @@
 <html>
     <head>
         <meta name="viewport" content="with=device-width, initial-scale=1.0">
-        <title>Landing Page</title>
+        <title>Pilton Hotel</title>		<!-- i changed the title of headerBef.php from Landing Page to Pilton Hotel-->
         <link rel="stylesheet" type="text/css" href="nav.css" >
         <link rel="stylesheet" href=https://pro.fontawesome.com/releases/v5.10.0/css/all.css>
         
