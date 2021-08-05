@@ -1,13 +1,7 @@
 <head>
 <title>Sellers</title>
 </head>
-<?php 
-session_start();
-include('includes/header.php');
-include('includes/navbar.php');
-?>
 <br>
-
 <!-- Delete Seller Modal -->
 <div class="modal fade" id="deletesellermodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -59,14 +53,14 @@ include('includes/navbar.php');
 
             <?php
                 //retrieve data from database
-                $connection = mysqli_connect("localhost", "Aqieff", "test123", "piltonhotel");
+                $connection = mysqli_connect("localhost", "root", "", "piltonhotel");
 
                 $query = "SELECT * FROM seller_acc";
                 $query_run = mysqli_query($connection, $query);
 
             ?>
 
-                <table class="table table-striped" id="sellertable" width="100%" cellspacing="0" >
+                <table class="table table-striped" id="sellertable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th style="width: 10%;">Name</th>

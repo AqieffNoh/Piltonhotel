@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Hotel Management System</title>
+  <title>Pilton Hotel Management System</title>
  	
 
 <?php

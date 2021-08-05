@@ -89,7 +89,7 @@
 
             <?php
                 //retrieve data from database
-                $connection = mysqli_connect("localhost", "Aqieff", "test123", "piltonhotel");
+                $connection = mysqli_connect("localhost", "root", "", "piltonhotel");
 
                 $query = "SELECT * FROM add_ons";
                 $query_run = mysqli_query($connection, $query);

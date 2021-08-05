@@ -1,6 +1,6 @@
 <?php
 session_start();
-$connection = mysqli_connect("localhost", "Aqieff", "test123", "piltonhotel");
+$connection = mysqli_connect("localhost", "root", "", "piltonhotel");
 
 //add content query
 if(isset($_POST['addbtn']))
@@ -20,12 +20,12 @@ if(isset($_POST['addbtn']))
     if ($query_run)
     {
         $_SESSION['Success'] = "Add-On added";
-        header('Location: AddOn.php');
+        header('Location: index.php?page=AddOn');
     }
     else 
     {
         $_SESSION['Status'] = "Add-On not added";
-        header('Location: AddOn.php');
+        header('Location: index.php?page=AddOn');
     }
 
 }
@@ -47,12 +47,12 @@ if(isset($_POST['updatebtn']))
     if ($query_run)
     {
         $_SESSION['Success'] = "Add-On updated";
-        header('Location: AddOn.php');
+        header('Location: index.php?page=AddOn');
     }
     else 
     {
         $_SESSION['Status'] = "Add-On not updated";
-        header('Location: AddOn.php');
+        header('Location: index.php?page=AddOn');
     }
 
 }
@@ -68,12 +68,12 @@ if(isset($_POST['deletebtn']))
     if ($query_run)
     {
         $_SESSION['Success'] = "Add-On Deleted";
-        header('Location: AddOn.php');
+        header('Location: index.php?page=AddOn');
     }
     else 
     {
         $_SESSION['Status'] = "Add-On is NOT Deleted";
-        header('Location: AddOn.php');
+        header('Location: index.php?page=AddOn');
     }
 
 }

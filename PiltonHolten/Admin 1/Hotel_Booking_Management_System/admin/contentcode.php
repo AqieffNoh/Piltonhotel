@@ -24,12 +24,12 @@ if(isset($_POST['addbtn']))
     {
         move_uploaded_file($_FILES['image']['tmp_name'], $target);
         $_SESSION['Success'] = "Content added";
-        header('Location: content.php');
+        header('Location: index.php?page=content');
     }
     else 
     {
         $_SESSION['Status'] = "Content not added";
-        header('Location: content.php');
+        header('Location: index.php?page=content');
     }
 
 }
@@ -53,12 +53,12 @@ if(isset($_POST['updatebtn']))
         if ($query_run)
         {
             $_SESSION['Success'] = "Content updated";
-            header('Location: content.php');
+            header('Location: index.php?page=content');
         }
         else 
         {
             $_SESSION['Status'] = "Content not updated";
-            header('Location: content.php');
+            header('Location: index.php?page=content');
         }
     }
     else {
@@ -80,12 +80,12 @@ if(isset($_POST['updatebtn']))
         {
             move_uploaded_file($_FILES['image']['tmp_name'], $target);
             $_SESSION['Success'] = "Content updated";
-            header('Location: content.php');
+            header('Location: index.php?page=content');
         }
         else 
         {
             $_SESSION['Status'] = "Content not updated";
-            header('Location: content.php');
+            header('Location: index.php?page=content');
         }
     }
 
@@ -103,12 +103,12 @@ if(isset($_POST['deletebtn']))
     if ($query_run)
     {
         $_SESSION['Success'] = "Content Deleted";
-        header('Location: content.php');
+        header('Location: index.php?page=content');
     }
     else 
     {
         $_SESSION['Status'] = "Content is NOT Deleted";
-        header('Location: content.php');
+        header('Location: index.php?page=content');
     }
 
 }

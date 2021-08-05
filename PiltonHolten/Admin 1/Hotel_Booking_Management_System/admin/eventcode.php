@@ -1,6 +1,6 @@
 <?php
 session_start();
-$connection = mysqli_connect("localhost", "Aqieff", "test123", "piltonhotel");
+$connection = mysqli_connect("localhost", "root", "", "piltonhotel");
 
 //add event query
 if(isset($_POST['addbtn']))
@@ -24,12 +24,12 @@ if(isset($_POST['addbtn']))
     {
         move_uploaded_file($_FILES['image']['tmp_name'], $target);
         $_SESSION['Success'] = "Event added";
-        header('Location: events.php');
+        header('Location: index.php?page=events');
     }
     else 
     {
         $_SESSION['Status'] = "Event not added";
-        header('Location: events.php');
+        header('Location: index.php?page=events');
     }
 
 }
@@ -53,12 +53,12 @@ if(isset($_POST['updatebtn']))
         if ($query_run)
         {
             $_SESSION['Success'] = "Event updated";
-            header('Location: events.php');
+            header('Location: index.php?page=events');
         }
         else 
         {
             $_SESSION['Status'] = "Event not updated";
-            header('Location: events.php');
+            header('Location: index.php?page=events');
         }
     }
     else {
@@ -79,12 +79,12 @@ if(isset($_POST['updatebtn']))
         {
             move_uploaded_file($_FILES['image']['tmp_name'], $target);
             $_SESSION['Success'] = "Event updated";
-            header('Location: events.php');
+            header('Location: index.php?page=events');
         }
         else 
         {
             $_SESSION['Status'] = "Event not updated";
-            header('Location: events.php');
+            header('Location: index.php?page=events');
         }
     }
 }
@@ -100,12 +100,12 @@ if(isset($_POST['deletebtn']))
     if ($query_run)
     {
         $_SESSION['Success'] = "Event Deleted";
-        header('Location: events.php');
+        header('Location: index.php?page=events');
     }
     else 
     {
         $_SESSION['Status'] = "Event is NOT Deleted";
-        header('Location: events.php');
+        header('Location: index.php?page=events');
     }
 
 }

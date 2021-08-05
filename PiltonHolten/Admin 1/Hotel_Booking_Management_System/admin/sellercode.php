@@ -1,6 +1,6 @@
 <?php
 session_start();
-$connection = mysqli_connect("localhost", "Aqieff", "test123", "piltonhotel");
+$connection = mysqli_connect("localhost", "root", "", "piltonhotel");
 
 //add seller query
 if(isset($_POST['addbtn']))
@@ -26,12 +26,12 @@ if(isset($_POST['addbtn']))
     if ($query_run)
     {
         $_SESSION['Success'] = "Seller added";
-        header('Location: Sellers.php');
+        header('Location: index.php?page=Sellers');
     }
     else 
     {
         $_SESSION['Status'] = "Seller not added";
-        header('Location: Sellers.php');
+        header('Location: index.php?page=Sellers');
     }
 
 }
@@ -59,12 +59,12 @@ if(isset($_POST['updatebtn']))
     if ($query_run)
     {
         $_SESSION['Success'] = "Seller updated";
-        header('Location: Sellers.php');
+        header('Location: index.php?page=Sellers');
     }
     else 
     {
         $_SESSION['Status'] = "Seller not updated";
-        header('Location: Sellers.php');
+        header('Location: index.php?page=Sellers');
     }
 
 }
@@ -80,12 +80,12 @@ if(isset($_POST['deletebtn']))
     if ($query_run)
     {
         $_SESSION['Success'] = "Seller Deleted";
-        header('Location: Sellers.php');
+        header('Location: index.php?page=Sellers');
     }
     else 
     {
         $_SESSION['Status'] = "Seller is NOT Deleted";
-        header('Location: Sellers.php');
+        header('Location: index.php?page=Sellers');
     }
 
 }

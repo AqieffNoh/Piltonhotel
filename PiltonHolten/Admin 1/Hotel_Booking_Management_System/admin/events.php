@@ -94,7 +94,7 @@
 
             <?php
                 //retrieve data from database
-                $connection = mysqli_connect("localhost", "Aqieff", "test123", "piltonhotel");
+                $connection = mysqli_connect("localhost", "root", "", "piltonhotel");
 
                 $query = "SELECT * FROM events";
                 $query_run = mysqli_query($connection, $query);
@@ -107,7 +107,7 @@
                             <th style="width: 10%;">Name</th>
                             <th style="width: 40%;">Description</th>
                             <th style="width: 9.5%;">Picture</th>
-                            <th style="width: 5%;">Date</th>
+                            <th style="width: 8%;">Date</th>
                             <th style="width: 5%;"></th>
                             <th style="width: 5%;"></th>
                         </tr>
