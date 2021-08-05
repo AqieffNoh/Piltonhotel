@@ -122,7 +122,7 @@
 
                 </div>
               </form>
-              <a href="editProfile.php" title="Edit your profile">Edit Profile</a>
+              <button class="editbtn"><a href="editProfile.php" title="Edit your profile">Edit Profile</a></button>
             </div>
 </section>
 

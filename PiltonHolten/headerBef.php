@@ -1,12 +1,5 @@
 <?php
     session_start();
-    include("connection.php");
-    include("functions.php");
-
-    $user_data = check_login($conn);
-    // $bookdeets = search($con);
-	$roomdisplay = display($conn);
-    $date_now = date('d-m-y');
 ?>
 
 <!DOCTYPE html>
@@ -173,12 +166,12 @@
         <section class="topmenu">
         <nav>
 
-            <a href="home.php"><img name="logo" src="images/Pilton.png.jpeg"></a>
+            <a href="homeBef.php"><img name="logo" src="images/Pilton.png.jpeg"></a>
             <div class="nav-links">
                 <ul>
-                    <li><a href="">EVENT</a></li>
+                    <li><a href="">EVENTS</a></li>
                     <li><a href="">ABOUT US</a></li>
-                    <li><a href="merchpage.php">MERCHANDISE</a></li>
+                    <!-- <li><a href="merchpage.php">MERCHANDISE</a></li> -->
                 </ul>
             </div>
 
@@ -186,9 +179,9 @@
             <div class="user-dd" >
                 <button class="userdropdown"><i class="fas fa-user"></i></button>
                 <div class="user-dropdown-con">
-                    <p1>Hey,<?php echo $user_data['fname']; ?> <?php echo $user_data['lname']; ?> it is nice to see you back!</p1>
                     <p>User</p>
-                    <a href="userProfile.php">Account</a>
+                    <a href="login.php">Log in</a>
+                    <a href="signin.php">Sign up</a>
                     <p>Seller</p>
 
                     <button onclick="document.getElementById('id01').style.display='block'" style="width: auto;">Seller login</button>
@@ -221,42 +214,6 @@
                 </div>
             </div>
 
-            <div class="user-dd" >
-                <button class="userdropdown"><i class="fas fa-cart-arrow-down"></i></button>
-                <div class="user-dropdown-con">
-            <div class="shopping-cart"  id="cart" id="right" >
-            <dl id="acc">	
-            <dt class="active">								
-            <p class="shopping" >Shopping Cart</p>
-            </dt>
-            <dd class="active" style="display: block;">
-            <?php
-            //current URL of the Page. cart_update.php redirects back to this URL
-                $current_url = base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
-
-            if(isset($_SESSION["cart_session"]))
-            {
-                $total = 0;
-                echo '<ul>';
-                foreach ($_SESSION["cart_session"] as $cart_itm)
-                {
-                    echo '<li class="cart-itm">';
-                    echo '<span class="remove-itm"><a href="cart_update.php?removep='.$cart_itm["code"].'&return_url='.$current_url.'">&times;</a></span>'."</br>";
-                    echo '<h3  style="color: green" ><big> '.$cart_itm["name"].' </big></h3>';
-                    echo '<div class="p-code"><b><i>ID:</i></b><strong style="color: #d7565b" ><big> '.$cart_itm["code"].' </big></strong></div>';
-                    echo '<span><b><i>Shopping Cart</i></b>( <strong style="color: #d7565b" ><big> '.$cart_itm["TiradaProductTiga"].'</big></strong>) </span>';
-                    echo '<div class="p-price"><b><i>Price:</b></i> <strong style="color: #d7565b" ><big>RM'.$cart_itm["Qiimaha"].'</big></strong></div>';
-                    echo '</li>';
-                    $subtotal = ($cart_itm["Qiimaha"]*$cart_itm["TiradaProductTiga"]);
-                    $total = ($total + $subtotal); 
-                }
-                echo '</ul>';
-                echo '<span class="check-out-txt"><strong style="color:green" ><i>Total:</i> <big style="color:green" >RM'.$total.'</big></strong>';
-                echo' <a   class="a-btnjanan"  href="view_cart.php"> <span class="a-btn-text">Check Out</span></a></span>';
-            }else{
-                echo ' <h4>(Your Shopping Cart Is Empty!!!)</h4>';
-            }
-            ?>
 
             </dd>
             </dl>
@@ -267,18 +224,6 @@
         </nav>
     </section>
 
-    
-    <!-- <script>
-        // Get the modal
-        var modal = document.getElementById('id01');
-        
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick= function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script> -->
 
 
     </header>

@@ -59,7 +59,10 @@ if(isset($_POST["type"]) && $_POST["type"]=='add')
 	}
 	
 	//redirect back to original page
-	header('Location:'.$return_url);
+	
+	echo '<script>alert("1 item has successfully added to cart!")</script>';
+	header("Location: merchpage.php");
+	
 }
 
 //remove item from shopping cart
