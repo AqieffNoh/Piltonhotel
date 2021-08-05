@@ -117,7 +117,7 @@ h3{
     $fname=$user_data['fname'];
     $lname=$user_data['lname'];
 
-    $query=mysqli_query($conn,"SELECT * FROM cust_acc WHERE cust_id='$custid'") or die(mysqli_error());
+    $query=mysqli_query($conn,"SELECT * FROM cust_acc WHERE cust_id='$custid'") or die(mysqli_error($conn));
     $row=mysqli_fetch_array($query);
   ?>
 
@@ -164,7 +164,6 @@ h3{
                         <label class="form-control-label" for="input-email">Phone Number</label><br>
                         <input type="phone" id="input-phone" class="form-control form-control-alternative" placeholder="011-12345677" value="<?php echo $row['phone']; ?>" readonly>
                       </div>
-
                       <button class="editbtn"><a href="u_profileEdit.php" title="Edit your profile">Edit Profile</a></button>
                   </div>
                 </div>
@@ -174,7 +173,9 @@ h3{
 </section>
 
 <div class="divider"></div>
+
 <!-- booked_id	cust_id	room_id	roomtype_id	checkin	checkout	days_stayed	price	payment_id	 -->
+
 
 <section>
     <?php
