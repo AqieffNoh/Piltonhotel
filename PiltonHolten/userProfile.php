@@ -174,6 +174,53 @@ h3{
 </section>
 
 <div class="divider"></div>
+booked_id	cust_id	room_id	roomtype_id	checkin	checkout	days_stayed	price	payment_id	
+
+<section>
+    <?php
+    $sql1 = mysqli_query($conn, "SELECT * FROM booked_room_service JOIN test_room on test_room.roomtype_id = booked_room_service where cust_id = '$custid'") or die("Query error : " . mysqli_error($conn));
+    ?>
+<h3 id="head" class="mb-0">My Bookings History</h3>
+
+<div id="tab1" class="tab_content">
+    <table class="tablesorter" cellspacing="45"> 
+
+            <thead>
+                </tr>
+                <th> Booked ID </th> 
+                <th> Room Type </th>
+                <th> Room ID </th>		
+                <th> Room View </th>		  
+                <th> Check In Date </th>
+                <th> Check Out Date </th>				
+                <th> Price </th>				
+                			
+                </tr>
+            </thead>
+            <tbody>
+           
+</tbody>
+
+<?php while($row1 = mysqli_fetch_array($sql1)) {?>
+
+    <tr>
+        <td><?php echo $row1['booked_id']; ?></td>
+        <td><?php echo $row1['room_type']; ?></td>
+        <td><?php echo $row1['room_id']; ?></td>
+        <td> <?php echo '<img src="data:image;base64,'. base64_encode($row1['room_pic']) .'" alt="room pic" style="width:100%" >'; ?></td>
+            <!-- <img src="" alt="" style="width:100%"> -->
+        <td><?php echo $row1['checkin']; ?></td>
+        <td><?Php echo $row1['checkout']; ?></td>
+        <td><?php echo $row1['total_price']; ?></td>        
+    </tr>
+</table>
+</div>
+</section>
+<?php
+    }
+    ?>
+
+<div class="divider"></div>
 
 <section>
     <?php
@@ -216,7 +263,7 @@ h3{
 
 <section class="divider">
 
-<h1>My Hotel Booking History</h1>
+
 
 </section>
 </main>

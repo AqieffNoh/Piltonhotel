@@ -23,6 +23,15 @@ $date_now = date('d-m-y');
 
 <?php
 
+    function dateDifference($checkin , $checkout , $differenceFormat = '%a' )
+    {
+      
+        $days = date_diff($checkin, $checkout);
+      
+        return $days->format($differenceFormat);
+      
+    }
+
     $conn = mysqli_connect("localhost", "upandrunning", "super");
     $db = mysqli_select_db($conn, 'up_and_running');
     
@@ -45,12 +54,15 @@ $date_now = date('d-m-y');
       $checkout = $_POST['checkout'];
       $pax_no = $_POST['pax_no'];
       $price = $_POST['price'];
+      $total_price = $price * $days;
 
       // $roomdeets = $_GET['roomdeets'];
 
-      $query1 = "INSERT into booked_room_service (cust_id, room_id, roomtype_id, checkin, checkout, days_stayed, price, payment_id) values ('$just_id', '$checkroom_id', '$checkroomtype_id', '$checkin', '$checkout', DATEDIFF(day,'$checkin','$checkout'), '$price', $payment_id)";      	
+      $query1 = "INSERT into booked_room_service (cust_id, room_id, roomtype_id, checkin, checkout, days_stayed, price, total_price, payment_id) values ('$just_id', '$checkroom_id', '$checkroomtype_id', '$checkin', '$checkout', /*DATEDIFF(day,'$checkin','$checkout')*/ '$days', '$price', '$total_price' '$payment_id')";      	
 
-      $query = "insert into payments (card_no, card_name, exp_date, payment_date) values ('$card_no', '$card_name', '$exp_month' + '$exp_year', '$date_now')";
+      //UPDATE `booked_room_service` SET `total_price`=(SELECT `days_stayed`*`price` as `total_price`) WHERE `booked_id`=2
+
+      $query = "INSERT into payments (card_no, card_name, exp_date, payment_date) values ('$card_no', '$card_name', '$exp_year', '$date_now')";
 
     	mysqli_query($con, $query1);
       mysqli_query($con, $query);
