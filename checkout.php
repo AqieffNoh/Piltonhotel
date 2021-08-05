@@ -44,11 +44,11 @@ $date_now = date('d-m-y');
       $exp_year = $_POST['exp_year'];
       $cvv = $_POST['cvv'];
       $pay_date = $_POST['pay_date'];
-      $payment_id = $_POST['payment_id']
+      $payment_id = $_POST['payment_id'];
 
     if(isset($_POST['book-checkout'])){
       
-      $checkroomtype_id = $_POST['roomtype_id']
+      $checkroomtype_id = $_POST['roomtype_id'];
       $checkroom_id = $_POST['room_id'];
       $checkin = $_POST['checkin'];
       $checkout = $_POST['checkout'];

@@ -110,7 +110,12 @@ Page level custom scripts
 <script>
 
 $(document).ready(function() {
-    $('#sellertable').DataTable();
+    $('#sellertable').DataTable({
+    language: {
+        search: "_INPUT_",
+        searchPlaceholder: "Search Username"
+    }
+    });
 } );
 
 </script>

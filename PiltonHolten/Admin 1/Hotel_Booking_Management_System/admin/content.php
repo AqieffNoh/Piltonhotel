@@ -94,7 +94,7 @@
 
             <?php
                 //retrieve data from database
-                $connection = mysqli_connect("localhost", "root", "", "piltonhotel");
+                $connection = mysqli_connect("localhost", "root", "", "piltonhotel") or die(mysqli_error($connection));
 
                 $query = "SELECT * FROM contents";
                 $query_run = mysqli_query($connection, $query);
