@@ -7,28 +7,12 @@ if(isset($_POST['login_submit'])) {
 
     require_once 'dbh.inc.php';
     
-    // require_once 'functions.inc.php';
-
-//another
-//     if (emptyInputLogin($email, $pwd) !== false) {
-//         header("Location: ../index.php?error=emptyinput");
-//         exit();
-//     }
-
-//     loginSeller($conn, $email, $pwd);
-// }
-//     else{
-//         header("Location: ../index.php");
-//         exit();
-//     }
-
-
     if(empty($email) || empty($pwd)) {
         header("Location: ../index.php?error=emptyfields");
         exit();
     }
     else {
-        $sql = "SELECT * FROM seller_acc WHERE s_email=?;";
+        $sql = "SELECT * FROM seller_acc WHERE s_email=? AND s_password=?;";
         $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
                 header("Location: ../index.php?error=sqlerror");
@@ -36,14 +20,15 @@ if(isset($_POST['login_submit'])) {
             }
             else {
 
-                mysqli_stmt_bind_param($stmt, "s", $email);
+                mysqli_stmt_bind_param($stmt, "ss", $email, $pwd);
                 mysqli_stmt_execute($stmt);
                 $result = mysqli_stmt_get_result($stmt);
                     if ($row = mysqli_fetch_assoc($result)) {
                         $hash = password_hash($pwd, PASSWORD_DEFAULT);
                         $checkPwd = password_verify($pwd, $hash);
-                            if ($checkPwd === false) {
+                            if (!$checkPwd === true) {
                                 header("Location: ../index.php?error=wrongpwd");
+                                // die();
                                 exit();
                             }
                             else if ($checkPwd === true) {
@@ -51,7 +36,7 @@ if(isset($_POST['login_submit'])) {
                                 $_SESSION["s_id"] = $row["s_id"];
                                 $_SESSION["s_email"] = $row["s_email"];
                                 $_SESSION["s_name"] = $row["s_name"];
-                                header("Location: C:\xampp\htdocs\PiltonHotel\Piltonhotel\PiltonHolten\seller\index.php?login=success");
+                                header("Location: ../seller/index.php?login=success");
                                 exit();
                             }
                             else {
@@ -60,7 +45,9 @@ if(isset($_POST['login_submit'])) {
                             }
                     }
                     else{
-                        header("Location: ../index.php?error=nouser");
+                        header("Location: ../index.php?error=wrongp");
+                        echo "failed to login";
+                        echo '<script>alert("Wrong Password")</script>';
                          exit();
                     }
             }

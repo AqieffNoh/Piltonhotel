@@ -5,11 +5,62 @@
 
 <main>
 <link rel="stylesheet" type="text/css" href="sellerprofile.css" >
+
+<style>
+  input[type=text], select {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 50%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.profileha {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  text-align: center;
+}
+
+button {
+  background-color: #04AA6D;
+  color: white;
+  border-radius: 10px;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+</style>
+
 <div class="divider">
 </div>
 	
 <section>
-
+<div class="profileha">
 <?php
   include 'includes/dbh.inc.php';
 
@@ -21,8 +72,8 @@
 <div class="col-xl-8 order-xl-1">
           
               <!-- profile picture -->
-                <div>
-                  <label for="profilePic">Profile Picture: </label>
+                
+                  <h1><label for="profilePic">Profile Picture: </label></h1>
                   <div class=profilePic>
                     <?php
                   if ($row["profilePic"] == NULL) {
@@ -50,6 +101,7 @@
                 </div>
             
           <!-- user profile form -->
+          <div>
           <form class="userProfile" action="" method="POST" enctype="multipart/form-data" id="displayProfile">
 
           <div name="s_ID" style="display: none;"z>
@@ -73,7 +125,7 @@
                 </div>
                 
             <div class="card-body">
-                <h3 class="heading-small text-muted mb-4">User information</h3>
+                <h1 class="heading-small text-muted mb-4">User information</h1>
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-username">Username</label>
                         <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="<?php echo $row['s_username']; ?>" readonly>
@@ -85,44 +137,45 @@
                     </div>
 
                     <div>
-                        <label class="form-control-label" for="input-full-name">Date of Birth</label>
-                        <input type="date" id="input-birthdate" class="form-control form-control-alternative"  value="<?php echo $row['s_birthdate']; ?>" readonly>
+                        <label class="form-control-label" for="input-full-name">Date of Birth</label><br>
+                        <input type="date" id="input-birthdate" class="form-control form-control-alternative" style="width: 50%;" value="<?php echo $row['s_birthdate']; ?>" readonly>
                     </div>
 
                 </div>
 
                 <!-- Address -->
-                <h3 class="heading-small text-muted mb-4">Contact Information</h3>
+                <h1 class="heading-small text-muted mb-4">Contact Information</h1>
                
                   
                 <div class="form-group">
-                        <label class="form-control-label" for="input-email">Email Address</label>
-                        <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="123@example.com" value="<?php echo $row['s_email']; ?>" readonly>
+                        <label class="form-control-label" for="input-email">Email Address</label><br>
+                        <input type="email" id="input-email" class="form-control form-control-alternative" style="width: 50%;" placeholder="123@example.com" value="<?php echo $row['s_email']; ?>" readonly>
                       </div>
 
                       <div class="form-group">
-                        <label class="form-control-label" for="input-email">Phone Number</label>
-                        <input type="phone" id="input-phone" class="form-control form-control-alternative" placeholder="011-12345677" value="<?php echo $row['s_phone']; ?>" readonly>
+                        <label class="form-control-label" for="input-email">Phone Number</label><br>
+                        <input type="phone" id="input-phone" class="form-control form-control-alternative" style="width: 50%;" placeholder="011-12345677" value="<?php echo $row['s_phone']; ?>" readonly>
                       </div>
 
                       <div class="pl-lg-4">
-                        <label class="form-control-label" for="input-address">Full Address</label>
-                        <textarea id="input-address" class="form-control form-control-alternative" placeholder="Home Address" type="text" readonly><?php echo $row['s_address'];?></textarea>
+                        <label class="form-control-label" for="input-address">Full Address</label><br>
+                        <textarea id="input-address" class="form-control form-control-alternative" style="width: 50%;" placeholder="Home Address" type="text" readonly><?php echo $row['s_address'];?></textarea>
 
                   </div>
                 </div>
                 <hr class="my-4">
                 <!-- Description -->
-                <h3 class="heading-small text-muted mb-4">About me</h3>
+                <h1 class="heading-small text-muted mb-4">About me</h1>
                 <div class="pl-lg-4">
                   <div class="form-group focused">
-                    <label>Description</label>
-                    <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about you ..." type="text" readonly><?php echo $row['s_description'];?></textarea>
+                    <label>Description</label><br>
+                    <textarea rows="4" style="width: 50%;" class="form-control form-control-alternative" placeholder="A few words about you ..." type="text" readonly><?php echo $row['s_description'];?></textarea>
                   </div>
 
                 </div>
               </form>
               <button class="editbtn"><a href="editProfile.php" title="Edit your profile">Edit Profile</a></button>
+            </div>
             </div>
 </section>
 

@@ -9,6 +9,7 @@ $_SESSION = array();
 session_destroy();
  
 // Redirect to login page
-header("location: \SDP\index.php");
+header("location: \PiltonHotel\Piltonhotel\PiltonHolten\index.php");
+
 exit;
 ?>

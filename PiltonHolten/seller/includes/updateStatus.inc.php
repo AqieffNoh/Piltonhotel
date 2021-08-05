@@ -13,6 +13,6 @@ if (isset($_POST['updateStatus'])) {
 
 mysqli_close($conn);
 
-header("location: ../merchorder.php?stat=succesfull update status");
+header("location: ../merchorder.php?stat=succesfull");
 exit();
 }

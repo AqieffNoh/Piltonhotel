@@ -14,6 +14,7 @@ if(isset($_GET["emptycart"]) && $_GET["emptycart"]==1)
 if(isset($_POST["type"]) && $_POST["type"]=='add')
 {
 	$Product_ID 	= filter_var($_POST["merch_id"], FILTER_SANITIZE_STRING); //product code
+	$seller_ID 	= filter_var($_POST["s_id"], FILTER_SANITIZE_STRING);
 	$product_qty 	= filter_var($_POST["product_qty"], FILTER_SANITIZE_NUMBER_INT); //product code
 	$return_url 	= base64_decode($_POST["return_url"]); //return url
 	

@@ -51,9 +51,57 @@
   margin-top: 20px;
   font-size:35px;
 }
-</style>
 
+input[type=text], select {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 50%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.addproduct {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  float: center;
+}
+
+button {
+  background-color: #04AA6D;
+  border-radius: 10px;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+</style>
 <div class="header">
+
 </div>
 
 <!-- addmerch -->
@@ -130,7 +178,7 @@
     <tr>               
         <td> 
         <label>Description:</label>  
-        <textarea rows = "3" cols = "60" name = "desc" placeholder="Enter merchandise details here..."></textarea>
+        <textarea rows = "3" cols = "60" name = "desc" placeholder="Enter merchandise details here..." required></textarea>
         <span id="pass-info"> </span>
         </td>
     </tr>
@@ -169,11 +217,11 @@
 
 <h1 class="h1">Merchandise List</h1>
     <div id="tab1" class="tab_content">
-    <table class="tablesorter" cellspacing="45"> 
+    <table class="tablesorter" > 
 
             <thead>
                 </tr>
-                <th> Check </th> 
+                <th> Merch ID </th>	
                 <th> Merch Name </th>			  
                 <th> Category </th>
                 <th> Price </th>				
@@ -191,7 +239,7 @@
     {?>
 
     <tr>
-        <td><input type="checkbox"></td>
+        <td><?php echo $row['merch_id']; ?></td>
         <td><?php echo $row['merch_name']; ?></td>
         <td><?php echo $row['category_ID']; ?></td>
         <td><?php echo $row['price']; ?></td>

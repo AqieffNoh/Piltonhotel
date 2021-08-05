@@ -62,7 +62,8 @@
         <tbody>
           <?php
           $sn=1;
-          $user_qry="SELECT * from merch_order";
+          $check=$_SESSION["s_id"];
+          $user_qry="SELECT * from merch_order WHERE s_id='$check'";
           $user_res=mysqli_query($conn,$user_qry);
           while($user_data=mysqli_fetch_assoc($user_res))
           {

@@ -49,7 +49,7 @@ session_start();
   <form class="cust_login"  method="POST">
     <input type="email" name="cust_email" id="cust_email" required placeholder="Your@email.com">
     <input type="password" name="cust_password" id="cust_password" required placeholder="Your password here">
-    <button class="btn" id="log" name = "loginbtn" type="submit">To Pilton!</button>   
+    <button class="btn" id="log" name = "loginbtn" type="submit">To Pilton!</button><br>   
     <a href="signin.php">New to Pilton Hotel? Join us!</a>
   </form>
 </div>
