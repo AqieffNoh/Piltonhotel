@@ -23,7 +23,7 @@ session_start();
                     if($user_data['password'] === $password){
                         
                         $_SESSION['just_id'] = $user_data['just_id'];
-                        header("Location: indexwq.php");
+                        header("Location: home.php?login=Success");
                         die;
                     }
                 }
