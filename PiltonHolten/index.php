@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-    include("connection.php");
-    include("functions.php");
-    include("headerBef.php");
+    include("connection.php");   //for connection, dbname, dbpassword,...
+    include("functions.php");    //for customer's check_login & $_SESSION['cust_id']
+    include("headerBef.php");       //for navbar header
     
 ?>
 
@@ -35,7 +35,7 @@ session_start();
                 // $db = mysqli_select_db($conn, 'up_and_running');
                 
                 $query = " select * from test_room";
-                $result = mysqli_query($conn, $query);
+                $result = mysqli_query($con, $query);
 
                 while($roomdisplay = mysqli_fetch_array($result)){
                 ?>            
