@@ -15,7 +15,6 @@ if (!$conn) {
 }
 
 
-    die("failed to connect.");
-}
+
 ?>
 
