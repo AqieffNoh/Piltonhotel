@@ -1,8 +1,8 @@
 <?php
 session_start();
-
+include("headerBef.php");
     include("connection.php");
-    $roomdisplay = display($con);
+    // $roomdisplay = display($con);
 ?>
 
 <!DOCTYPE html>
@@ -15,22 +15,7 @@ session_start();
 	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="navbar">
-            <div class="nav-left">
-                <a href="">Pilton</a>
-            </div>
-            <div class="nav-center">
-                <a href="#home">Home</a>
-                <a href="">Merchandies</a>
-                <a href="#contact">Events</a>
-            </div>
-            <div class="nav-right">
-                <a href="login.php">Log In</a>
-                <a href="signin.php">Join Us</a>
-            </div>
-        </div>
-    </header>
+
     <main>
 
     
