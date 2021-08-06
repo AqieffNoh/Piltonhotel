@@ -1,6 +1,8 @@
 <?php
+
     include "header.php";
-    include "includes/dbh.inc.php";
+    include "connection.php";
+    include "functions.php";
 
 ?>
 
@@ -169,7 +171,7 @@ span.price {
 
 <div class="viewcart">
 <?php
-
+  $user_data = check_login($con);
     $current_url = base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 	if(isset($_SESSION["cart_session"]))
     {
@@ -179,7 +181,7 @@ span.price {
 		echo '<table class="tablesorter"cellspacing="0">';
     ?>
 
-    <input style="display: none;" name="custid" value=<?php echo $user_data['cust_id']; ?>>
+    <input style="display: none;" name="custid" value=<?php echo $user_data['CustID']; ?>>
 
     <input style="display: none;" type="text" id="m_order_no" name="m_order_no" value="<?php echo rand(10000,50000);?>" readonly>
     
@@ -204,7 +206,7 @@ span.price {
 		foreach ($_SESSION["cart_session"] as $cart_itm)
         {
        $Product_ID  = $cart_itm["code"];
-		   $results = $conn->query("SELECT s_id, merch_name, merch_desc, price FROM merch  WHERE merch_id='$Product_ID'"); 
+		   $results = $con->query("SELECT s_id, merch_name, merch_desc, price FROM merch  WHERE merch_id='$Product_ID'"); 
           if ($results) { 
 
           //fetch results set as object and output HTML

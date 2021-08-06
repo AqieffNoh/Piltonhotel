@@ -1,4 +1,6 @@
-
+<?php
+    session_start();
+?>
 
 <!DOCTYPE html>
 <html>
@@ -193,10 +195,10 @@
                         </div>
                     
                         <div class="sl-container">
-                            <label for="email"><b>Email Address</b></label>
-                            <input type="text" placeholder="Enter email address" name="email" required>
+                            <label for="email"><b>Email Address</b></label><br>
+                            <input style="width: 100%; height: 20px;" type="email" placeholder="Enter email address" name="email" required><br>
                     
-                            <label for="pwd"><b>Password</b></label>
+                            <label for="pwd"><b>Password</b></label><br>
                             <input type="password" placeholder="Enter Password" name="pwd" required>
                             
                             <button type="submit" name="login_submit" id="loginbtn" href="">Login</button>
@@ -226,29 +228,31 @@
             //current URL of the Page. cart_update.php redirects back to this URL
                 $current_url = base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 
-            if(isset($_SESSION["cart_session"]))
-            {
-                $total = 0;
-                echo '<ul>';
-                foreach ($_SESSION["cart_session"] as $cart_itm){
-                    
-                    echo '<li class="cart-itm">';
-                    echo '<span class="remove-itm"><a href="cart_update.php?removep='.$cart_itm["code"].'&return_url='.$current_url.'">&times;</a></span>'."</br>";
-                    echo '<h3  style="color: green" ><big> '.$cart_itm["name"].' </big></h3>';
-                    echo '<div class="p-code"><b><i>ID:</i></b><strong style="color: #d7565b" ><big> '.$cart_itm["code"].' </big></strong></div>';
-                    echo '<span><b><i>Shopping Cart</i></b>( <strong style="color: #d7565b" ><big> '.$cart_itm["TiradaProductTiga"].'</big></strong>) </span>';
-                    echo '<div class="p-price"><b><i>Price:</b></i> <strong style="color: #d7565b" ><big>RM'.$cart_itm["Qiimaha"].'</big></strong></div>';
-                    echo '</li>';
-                    $subtotal = ($cart_itm["Qiimaha"]*$cart_itm["TiradaProductTiga"]);
-                    $total = ($total + $subtotal); 
+                if(isset($_SESSION["cart_session"]))
+                {
+                    $total = 0;
+                    echo '<ul>';
+                    foreach ($_SESSION["cart_session"] as $cart_itm)
+                    {
+                        echo '<li class="cart-itm">';
+                        echo '<span class="remove-itm"><a href="cart_update.php?removep='.$cart_itm["code"].'&return_url='.$current_url.'">&times;</a></span>'."</br>";
+                        echo '<h3  style="color: green" ><big> '.$cart_itm["name"].' </big></h3>';
+                        echo '<div class="p-code"><b><i>ID:</i></b><strong style="color: #d7565b" ><big> '.$cart_itm["code"].' </big></strong></div>';
+                        echo '<span><b><i>Shopping Cart</i></b>( <strong style="color: #d7565b" ><big> '.$cart_itm["TiradaProductTiga"].'</big></strong>) </span>';
+                        echo '<div class="p-price"><b><i>Price:</b></i> <strong style="color: #d7565b" ><big>RM'.$cart_itm["Qiimaha"].'</big></strong></div>';
+                        echo '</li>';
+                        $subtotal = ($cart_itm["Qiimaha"]*$cart_itm["TiradaProductTiga"]);
+                        $total = ($total + $subtotal); 
+                    }
+                    echo '</ul>';
+                    echo '<span class="check-out-txt"><strong style="color:green" ><i>Total:</i> <big style="color:green" >RM'.$total.'</big></strong>';
+                    echo' <a   class="a-btnjanan"  href="view_cart.php"> <span class="a-btn-text">Check Out</span></a></span>';
+                    echo '<a   class="a-btnjanan" style="margin-right: 160px" href="cart_update.php?emptycart=1&return_url='.$current_url.'"><span class="a-btn-text">X</span></a>';
+                }else{
+                    echo ' <h4>(Your Shopping Cart Is Empty!!!)</h4>';
                 }
-                echo '</ul>';
-                echo '<span class="check-out-txt"><strong style="color:green" ><i>Total:</i> <big style="color:green" >RM'.$total.'</big></strong>';
-                echo' <a   class="a-btnjanan"  href="view_cart.php"> <span class="a-btn-text">Check Out</span></a></span>';
-            }else{
-                echo ' <h4>(Your Shopping Cart Is Empty!!!)</h4>';
-            }
-            ?>
+                ?>
+    
 
             </dd>
             </dl>

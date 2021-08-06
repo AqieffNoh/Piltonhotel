@@ -13,7 +13,7 @@ $desc   =$_POST['desc'];
 $picture =$_FILES['picture']['name'];
 $fname = strtotime(date('Y-m-d H:i')).'_'.$picture;
 
-$query="UPDATE merch SET category_ID ='$cate', merch_name ='$merchname', merch_desc='$desc' ,price ='$price' , quantity='$quantity' ,Picture='$fname'  WHERE merch_id =$id";
+$query="UPDATE merch SET category_id ='$cate', merch_name ='$merchname', merch_desc='$desc' ,price ='$price' , quantity='$quantity' ,Picture='$fname'  WHERE merch_id =$id";
 $rows=mysqli_query($conn,$query);
 echo "successfully updated ".$rows;
  if(!empty($_FILES['picture']['tmp_name'])){
@@ -21,7 +21,7 @@ echo "successfully updated ".$rows;
   }
 mysqli_close($conn);
 
-header("location: ../managemerch.php?msg=succesfull update one record");
+header("location: ../managemerch.php?msg=succesfullupdateonerecord");
 exit();
 }
 

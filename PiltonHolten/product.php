@@ -52,14 +52,13 @@ if( isset($_GET['product']) ) {
     $merch = $_GET['product'];
 
 
-        $stmt = mysqli_query($conn, "SELECT merch_id, merch.s_id, s_name, category_name, merch_name, merch_desc, picture, price FROM merch INNER JOIN seller_acc ON seller_acc.s_id=merch.s_id INNER JOIN merch_category ON merch_category.category_ID=merch.category_ID WHERE merch_name= '$merch'");
+        $stmt = mysqli_query($conn, "SELECT merch_id, merch.s_id, s_name, category_name, merch_name, merch_desc, picture, price FROM merch INNER JOIN seller_acc ON seller_acc.s_id=merch.s_id INNER JOIN merch_category ON merch_category.category_id=merch.category_id WHERE merch_name= '$merch'");
 
         while ($product = mysqli_fetch_array($stmt)) {
 
             ?>
 
-            <!-- Main content -->
-            <section class="content">
+<section class="content">
               <div class="row">
                   <div class="col-sm-9">
                       <div class="callout" id="callout" style="display:none">

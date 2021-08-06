@@ -143,7 +143,7 @@ button:hover {
         <td>   
         <label> Category Name: </label>
     
-            <!-- <input type="text" id="cname" name="cname" value="<?php echo $row['category_ID'];?>" placeholder="User name" required> -->
+            <!-- <input type="text" id="cname" name="cname" value="<?php echo $row['category_id'];?>" placeholder="User name" required> -->
             <?php
             include('includes/dbh.inc.php');
             $name= mysqli_query($conn,"SELECT * FROM merch_category");
@@ -153,7 +153,7 @@ button:hover {
             while($res= mysqli_fetch_assoc($name))
             {
             
-            echo '<option value="'.$res['category_ID'].'" '.($row['category_ID'] == $res['category_ID'] ? "selected" : '').'>';
+            echo '<option value="'.$res['category_id'].'" '.($row['category_id'] == $res['category_id'] ? "selected" : '').'>';
             echo $res['category_name'];
             echo'</option>';
             }

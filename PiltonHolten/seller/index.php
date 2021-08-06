@@ -293,7 +293,7 @@ button:hover {
 
     <tr>
         <td><?php echo $row['merch_name']; ?></td>
-        <td><?php echo $row['category_ID']; ?></td>
+        <td><?php echo $row['category_id']; ?></td>
         <td><?php echo $row['price']; ?></td>
         <td><?Php echo $row['quantity']; ?></td>
         <td><?php echo $row['merch_desc']; ?></td>
