@@ -81,7 +81,7 @@ $bookedinsert = mysqli_query($con, $query1) or die(mysqli_error($con));
     <input type="text" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cookpid']?>"></input>
     <br>
     <br>
-    <button type="submit" name="aftercheckout" onclick="window.print();" class="btn btn-primary" id="print-btn"><a href="thankyoupage.php">Yes</a></button>
+    <button type="submit" name="aftercheckout" onclick="window.print();" class="btn btn-primary" id="print-btn">Yes</button>
     <!-- <button onclick="window.print();" class="btn btn-primary" id="print-btn">Print</button> -->
     <a href="rooms.php"><button>No</button></a>
     </form>
