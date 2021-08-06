@@ -156,7 +156,7 @@ button:hover {
 
     ?>
     
-<input type="text" value="<? echo $check ?>">
+<input type="hidden" value="<?php echo $check ?>">
 <h1 class="h1">Merchandise Orders</h1>
 		<table class="merch-order">
 

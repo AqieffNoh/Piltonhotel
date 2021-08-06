@@ -3,7 +3,7 @@
 
 include('dbh.inc.php');
 
-$sql="INSERT INTO payments (m_order_no, card_no, card_name, exp_month, exp_year, payment_date) 
+$sql="INSERT INTO mpayments (m_order_no, card_no, card_name, exp_month, exp_year, payment_date) 
 VALUES ('$_POST[orderno]','$_POST[ccnum]', '$_POST[cname]', '$_POST[expmonth]', '$_POST[expyear]','$_POST[date]')";
 
 if (!mysqli_query($conn,$sql))

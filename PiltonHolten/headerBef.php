@@ -1,3 +1,8 @@
+<?php
+    // session_start();
+	include("connection.php");
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -162,7 +167,7 @@
         <section class="topmenu">
         <nav>
 
-            <a href="home.php"><img name="logo" src="images/Pilton.png.jpeg"></a>
+            <a href="homeBef.php"><img name="logo" src="images/Pilton.png.jpeg"></a>
             <div class="nav-links">
                 <ul>
                     <li><a href="">EVENTS</a></li>
