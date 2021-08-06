@@ -25,6 +25,7 @@ session_start();
 </head>
 <body>
   <main>
+      <div>
         <img src="images\background1.jpg" alt="">
 		<h1>Pilton Hotel</h1>
 		<br>
@@ -92,11 +93,76 @@ session_start();
                 
           
         </section>
-	
+                </div>         
+                <br>
+                <div id=wrapper>
+    <div class="container-fluid">
+    <div class="shadow mb-4">
+        <div class="card-header py-3">
+            <h4 class="m-0 font-weight-bold text-primary" style="position:center;">Pilton's Activities
+            </h4>
+        </div>
+    
+        <div class="card-body">
+
+            <div class="table-responsive">
+
+            <?php
+                //retrieve data from database
+                $connection = mysqli_connect("localhost", "root", "", "piltonhotel") or die(mysqli_error($connection));
+
+                $query = "SELECT * FROM contents";
+                $query_run = mysqli_query($connection, $query);
+
+            ?>
+
+                <table class="table table-striped" id="dataTable" width="100%" cellspacing="0" >
+                    <thead>
+                        <tr>
+                            <th style="width: 10%;">Name</th>
+                            <th style="width: 40%;">Description</th>
+                            <th style="width: 9.5%;">Picture</th>
+                            <th style="width: 8%;">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            //repeat each row of data
+                            $target_dir = "Admin 1\Hotel_Booking_Management_System/admin/webimg/";
+                            if(mysqli_num_rows($query_run) > 0)
+                            {
+                                while($row = mysqli_fetch_array($query_run))
+                                {
+                                    ?>
+                                <tr>
+                                    <td><?php echo $row['Name']; ?></td>
+                                    <td><?php echo $row['Description']; ?></td>
+                                    <td><?php echo "<img src=" . "'" . $target_dir . "/" . $row['Picture'] . "'" . "style='width:150px;height:150px'/>"; ?></td>
+                                    <td><?php echo $row['Date']; ?></td>
+                                </tr>
+                                    <?php
+                                }
+                            }
+                            else{
+                                echo "No Records Found";
+                            }
+                        ?>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 	</main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
-<footer>
-    <h1>Foot.</h1>
-</footer>
+<footer class="sticky-footer bg-white" style="margin:50px;">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright &copy; Pilton Hotel 2001</span>
+            </div>
+        </div>
+    </footer>
 </html>

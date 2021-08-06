@@ -167,11 +167,11 @@
         <section class="topmenu">
         <nav>
 
-            <a href="homeBef.php"><img name="logo" src="images/Pilton.png.jpeg"></a>
+            <a href="home.php"><img name="logo" src="images/Pilton.png.jpeg"></a>
             <div class="nav-links">
                 <ul>
-                    <li><a href="">EVENTS</a></li>
-                    <li><a href="">ABOUT US</a></li>
+                    <li><a href="eventbef.php">EVENTS</a></li>
+                    <li><a href="aboutusbef.php">ABOUT US</a></li>
                     <!-- <li><a href="merchpage.php">MERCHANDISE</a></li> -->
                 </ul>
             </div>
