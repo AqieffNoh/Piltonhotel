@@ -53,6 +53,7 @@ $user_data = check_login($con);
       $totalprice = $price*$abs_diff;
   
       $_SESSION['cooktp'] = $totalprice;
+      $_SESSION['cookdays'] = $abs_diff;
 
     }   
 ?>

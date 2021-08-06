@@ -20,6 +20,7 @@ $price = $_SESSION['cookpr'];
 
 $payment_id = $_SESSION['cookpid'];
 $totalprice = $_SESSION['cooktp'];
+$abs_diff = $_SESSION['cookdays'];
 
 echo $checkoutcustid;
 
@@ -48,37 +49,37 @@ $bookedinsert = mysqli_query($con, $query1) or die(mysqli_error($con));
     <h1>Booking Confirmation</h1>
     <h2>Are you sure about this booking?</h2>
 
-    <img src="..\images\Pilton.png.jpeg" alt="Company logo" style="width: 100%; max-width: 300px" />
+    <!-- <img src="..\images\Pilton.png.jpeg" alt="Company logo" style="width: 100%; max-width: 300px" /> -->
     <form action="aftercheckoutcode.php" method="POST">
     <br><br>
-    <label for="">Customer ID</label>
-    <input type="text" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cookcuid']?>"></input>
+    <!-- <label for="">Customer ID</label> -->
+    <input type="hidden" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cookcuid']?>"></input>
     
     <br>
-    <label for="">Room Type ID</label>
-    <input type="text" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cookrtid']?>"></input>
+    <!-- <label for="">Room Type ID</label> -->
+    <input type="hidden" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cookrtid']?>"></input>
     
     <br>
-    <label for="">Room ID</label>
-    <input type="text" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cookcrid']?>"></input>
+    <!-- <label for="">Room ID</label> -->
+    <input type="hidden" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cookcrid']?>"></input>
     <br>
-    <label for="">Check In Date</label>
-    <input type="text" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cookrci']?>"></input>
+    <!-- <label for="">Check In Date</label> -->
+    <input type="hidden" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cookrci']?>"></input>
     <br>
-    <label for="">Check Out Date</label>
-    <input type="text" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cookrco']?>"></input>
+    <!-- <label for="">Check Out Date</label> -->
+    <input type="hidden" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cookrco']?>"></input>
     <br>
-    <label for="">Number of People</label>
-    <input type="text" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cookrpn']?>"></input>
+    <!-- <label for="">Number of People</label> -->
+    <input type="hidden" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cookrpn']?>"></input>
     <br>
-    <label for="">Price/night</label>
-    <input type="text" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cookpr']?>"></input>
+    <!-- <label for="">Price/night</label> -->
+    <input type="hidden" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cookpr']?>"></input>
     <br>
-    <label for="">Total Price</label>
-    <input type="text" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cooktp']?>"></input>
+    <!-- <label for="">Total Price</label> -->
+    <input type="hidden" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cooktp']?>"></input>
     <br>
-    <label for="">Payment ID</label>
-    <input type="text" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cookpid']?>"></input>
+    <!-- <label for="">Payment ID</label> -->
+    <input type="hidden" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cookpid']?>"></input>
     <br>
     <br>
     <button type="submit" name="aftercheckout" onclick="window.print();" class="btn btn-primary" id="print-btn">Yes</button>
@@ -206,13 +207,13 @@ $bookedinsert = mysqli_query($con, $query1) or die(mysqli_error($con));
 						<table>
 							<tr>
 								<td class="title">
-									<img src="..\images\Pilton.png.jpeg" alt="Company logo" style="width: 100%; max-width: 300px" />
+									
 								</td>
 
 								<td>
-									Invoice #: 123<br />
-									Created: January 1, 2015<br />
-									Due: February 1, 2015
+									Payment ID: <?php echo $_SESSION['cookpid']?><br />
+									Created: <?php echo $date_now?><br />
+									Since 2008
 								</td>
 							</tr>
 						</table>
@@ -230,9 +231,9 @@ $bookedinsert = mysqli_query($con, $query1) or die(mysqli_error($con));
 								</td>
 
 								<td>
-									Acme Corp.<br />
-									John Doe<br />
-									john@example.com
+									Pilton Corp.<br />
+									Mr. Pilton<br />
+									piltonhotel@gmail.com
 								</td>
 							</tr>
 						</table>
@@ -248,31 +249,37 @@ $bookedinsert = mysqli_query($con, $query1) or die(mysqli_error($con));
 				<tr class="details">
 					<td>Name</td>
 
-					<td></td>
+					<td><?php echo $user_data['fname']?> <?php echo $user_data['lname']?></td>
 				</tr>
 
 				<tr class="heading">
-					<td>Item</td>
+					<td>Your Booking</td>
 
-					<td>Price</td>
+					<td></td>
 				</tr>
 
 				<tr class="item">
-					<td>Website design</td>
+					<td>Room ID</td>
 
-					<td>$300.00</td>
-				</tr>
-
-				<tr class="item">
-					<td>Hosting (3 months)</td>
-
-					<td>$75.00</td>
+					<td><?php echo $_SESSION['cookcrid']?></td>
 				</tr>
 
 				<tr class="item last">
-					<td>Domain name (1 year)</td>
+					<td>Check In Date</td>
 
-					<td>$10.00</td>
+					<td><?php echo $_SESSION['cookrci']?></td>
+				</tr>
+
+				<tr class="item last">
+					<td>Check Out Date</td>
+
+					<td><?php echo $_SESSION['cookrco']?></td>
+				</tr>
+
+				<tr class="item">
+					<td>Price per Night</td>
+
+					<td><?php echo $_SESSION['cookpr']?></td>
 				</tr>
 
 				<tr class="total">
