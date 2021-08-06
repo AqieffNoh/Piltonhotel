@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("headerBef.php");
+    include("headerBef.php");
     include("connection.php");
     // $roomdisplay = display($con);
 ?>
@@ -9,8 +9,8 @@ include("headerBef.php");
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Welcome to Pilton Hotel</title>
 	<link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -21,59 +21,26 @@ include("headerBef.php");
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
+
 <body>
-    <main>
-        <section class="header">
-            <div class="text-box">
-		<h1>Pilton Hotel</h1>
-		<br>
-		<p>Hello, Welcome to Pilton Hotel</p>
-        </div>
-        </section>
 
-    <section class="card-flex-container">
-            <?php
-
-                $con = mysqli_connect("localhost", "root", "");
-                $db = mysqli_select_db($con, 'piltonhotel');
-                
-                $query = " select * from room_types";
-                $result = mysqli_query($con, $query);
-
-                while($roomdisplay = mysqli_fetch_array($result)){
-                ?>            
-                <div class="card">
-                    <div class="card-img">
-                        <?php echo '<img src="data:image;base64,'. base64_encode($roomdisplay['room_pic']) .'" alt="room pic" style="width:100%" >'; ?>
-                        <img src="" alt="" style="width:100%">
-                    </div>
-                    <div class="card-info">
-                        <h1><?php echo $roomdisplay['room_type']; ?></h1>
-                        <p class="price">RM <?php echo $roomdisplay['price']; ?></p>
-                        <p><?php echo $roomdisplay['room_desc'] ?></p>
-                    </div>
-                    <button><a href="rooms.php?room=<?php echo $roomdisplay['room_type']?>" style="text-decoration: none; color: #e0fff4;">Book Now</a></button>
-                </div>            
-                <?php
-                } ?>
-            </section>
-    <div id=wrapper>
-    <div class="container-fluid">
-    <div class="shadow mb-4">
-        <div class="card-header py-3">
-            <h4 class="m-0 font-weight-bold text-primary" style="position:center;">Pilton's Activities
+<!-- Event Table -->
+<div id=wrapper>
+<div class="container-fluid" style="position: absolute; width: 100%; height: 100%;">
+    <div > 
+        <div class="card-header py-12">
+            <h4 class="m-0 font-weight-bold text-primary">Events
             </h4>
         </div>
-    
-        <div class="card-body">
 
+        <div class="card-body">
             <div class="table-responsive">
 
             <?php
                 //retrieve data from database
-                $connection = mysqli_connect("localhost", "root", "", "piltonhotel") or die(mysqli_error($connection));
+                $connection = mysqli_connect("localhost", "root", "", "piltonhotel");
 
-                $query = "SELECT * FROM contents";
+                $query = "SELECT * FROM events";
                 $query_run = mysqli_query($connection, $query);
 
             ?>
@@ -117,17 +84,5 @@ include("headerBef.php");
     </div>
 </div>
 </div>
-
-
-
-    
-    </main>
 </body>
-<footer class="sticky-footer bg-white" style="margin:50px;">
-        <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-                <span>Copyright &copy; Pilton Hotel 2001</span>
-            </div>
-        </div>
-    </footer>
 </html>

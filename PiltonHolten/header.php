@@ -170,9 +170,9 @@
             <a href="index.php"><img name="logo" src="images/Pilton.png.jpeg"></a>
             <div class="nav-links">
                 <ul>
-                    <li><a href="">EVENT</a></li>
+                    <li><a href="event.php">EVENT</a></li>
                     <li><a href="merchpage.php">MERCHANDISE</a></li>
-                    <li><a href="">ABOUT US</a></li>
+                    <li><a href="aboutus.php">ABOUT US</a></li>
                 </ul>
             </div>
 
