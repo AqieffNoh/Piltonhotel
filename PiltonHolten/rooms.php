@@ -1,16 +1,15 @@
 <?php
+session_start();
 
     include("connection.php");
-
     include("functions.php");
-    // include("header.php");
+    include("header.php");
 
     $user_data = check_login($con);
     // $bookdeets = search($con);
 	  $roomdisplay = display($con);
     $date_now = date('d-m-y');
     
-
 ?>
 
 <!DOCTYPE html>
@@ -29,15 +28,17 @@
   <div class="column-left">
   <?php
 
-    // $conn = mysqli_connect("localhost", "upandrunning", "super");
-    // $db = mysqli_select_db($conn, 'up_and_running');
+    $conn = mysqli_connect("localhost", "root", "");
+    $db = mysqli_select_db($conn, 'piltonhotel');
+
+    
 
 
     if(isset($_GET['room'])){
 
     $room = $_GET['room'];
 
-    $query = "SELECT room_type, test_room.roomtype_id, room.room_id, room_desc, pax_no, price, room_pic FROM test_room JOIN room ON room.roomtype_id = test_room.roomtype_id WHERE room_type = '$room' LIMIT 1";
+    $query = "SELECT room_type, room_types.roomtype_id, hotel_rooms.room_id, room_desc, pax_no, price, room_pic FROM room_types JOIN hotel_rooms ON Hotel_rooms.roomtype_id = room_types.roomtype_id WHERE room_type = '$room' LIMIT 1";
     
     $result = mysqli_query($conn, $query);
 

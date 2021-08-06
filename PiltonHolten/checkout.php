@@ -23,8 +23,8 @@ $user_data = check_login($con);
 
 <?php
 
-    $conn = mysqli_connect("localhost", "upandrunning", "super");
-    $db = mysqli_select_db($conn, 'up_and_running');
+    $conn = mysqli_connect("localhost", "root", "");
+    $db = mysqli_select_db($conn, 'piltonhotel');
     
     if(isset($_POST['book-checkout'])){
     
@@ -95,3 +95,4 @@ $user_data = check_login($con);
 </div>
 </body>
 </html>
+
