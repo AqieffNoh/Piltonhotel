@@ -20,7 +20,7 @@ session_start();
                 $just_id = random_num(20);    //need this, if want to produce random num for customer_id, 20 is maximum length
                 $query = "insert into cust_acc (just_id, fname, lname, email, password, phone) values ('$just_id', '$fname', '$lname', '$email', '$password', '$phone')";
                 //to save the query
-                mysqli_query($con, $query);
+                mysqli_query($conn, $query);
     
                 header("Location: login.php");
                 die;

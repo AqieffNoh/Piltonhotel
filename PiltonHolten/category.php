@@ -122,7 +122,7 @@ float: left;
   width: 33.33%;
   padding: 5px;
 height: 539;
-margin: 15px;
+margin: 35px;
 text-align: center;
 font-family: arial;
 }
@@ -138,6 +138,7 @@ padding: 0 5% 10px;
 }
 
 .card-info > h1{
+  height: 80px;
 margin: 0;
 }
 
@@ -234,14 +235,20 @@ include "searchBar.php";
                             $image = (!empty($row['picture'])) ? 'seller/images/'.$row['picture'] : 'seller/images/noimage.png';?>
                                
                                <div class="card">
+                               <div class="card-img">
                                     <img src=<?php echo $image ?> width='100%' height='250px' class='thumbnail'>
-                                    <h1><?php echo $row['merch_name']; ?></h1>
+                                    </div>
+                                    <div class="card-info">
+                                    <h1 style="font-size:20px;"><?php echo $row['merch_name']; ?></h1>
                                     <p class="price">RM <?php echo ($row['price']); ?></p>
                                     <p><button><a href="product.php?product=<?php echo $row['merch_name']; ?>" style="color: white;">Details</a></button></p>
                                     <input type="hidden" name="Product_ID" value=<?php echo $row['merch_id'];?> >
                                     <input type="hidden" name="type" value="add" >
                                     <input type="hidden" name="return_url" value="'.$current_url.'" >
+                                    </div>
                                 </div>
+                </div>  
+                
                                <?php
                         }
                  

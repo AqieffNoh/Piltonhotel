@@ -177,8 +177,8 @@
             <div class="nav-links">
                 <ul>
                     <li><a href="">EVENT</a></li>
-                    <li><a href="">ABOUT US</a></li>
                     <li><a href="merchpage.php">MERCHANDISE</a></li>
+                    <li><a href="">ABOUT US</a></li>
                 </ul>
             </div>
 
@@ -186,7 +186,7 @@
             <div class="user-dd" >
                 <button class="userdropdown"><i class="fas fa-user"></i></button>
                 <div class="user-dropdown-con">
-                    <p1>Hey,<?php echo $user_data['fname']; ?> <?php echo $user_data['lname']; ?> it is nice to see you back!</p1>
+                    
                     <p>User</p>
                     <a href="userProfile.php">Account</a>
                     <a href="logout.php">Log out</a>
@@ -239,8 +239,8 @@
             {
                 $total = 0;
                 echo '<ul>';
-                foreach ($_SESSION["cart_session"] as $cart_itm)
-                {
+                foreach ($_SESSION["cart_session"] as $cart_itm){
+                    
                     echo '<li class="cart-itm">';
                     echo '<span class="remove-itm"><a href="cart_update.php?removep='.$cart_itm["code"].'&return_url='.$current_url.'">&times;</a></span>'."</br>";
                     echo '<h3  style="color: green" ><big> '.$cart_itm["name"].' </big></h3>';

@@ -145,7 +145,7 @@ h3{
                 <h3 id="head" class="heading-small text-muted mb-4">User information</h3>
                       
                   <div class="row">
-                        <label class="form-control-label" for="input-full-name">Full Name</label>
+                        <label class="form-control-label" for="input-full-name">Full Name</label><br>
                         <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="<?php echo $fname?> <?php echo $lname?>" readonly>
                     </div>
 
@@ -183,7 +183,7 @@ h3{
     $user_data = check_login($conn);
     $custid1=$user_data['cust_id'];
 
-    $sql1 = mysqli_query($conn, "SELECT * FROM booked_room_service JOIN test_room on test_room.roomtype_id = booked_room_service.roomtype_id where custid = '$custid1'") or die("Query error : " . mysqli_error($conn));
+    $sql1 = mysqli_query($conn, "SELECT * FROM booked_room_service JOIN test_room on test_room.roomtype_id = booked_room_service.roomtype_id where cust_id = '$custid1'") or die("Query error : " . mysqli_error($conn));
     ?>
 <h3 id="head" class="mb-0">My Room Bookings</h3>
 

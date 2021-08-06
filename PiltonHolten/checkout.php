@@ -6,7 +6,7 @@ include("connection.php");
 include("functions.php");
 // include("header");
 $date_now = date('d-m-y');
-$user_data = check_login($con);
+$user_data = check_login($conn);
 
 ?>
 
@@ -23,8 +23,8 @@ $user_data = check_login($con);
 
 <?php
 
-    $conn = mysqli_connect("localhost", "upandrunning", "super");
-    $db = mysqli_select_db($conn, 'up_and_running');
+    // $conn = mysqli_connect("localhost", "upandrunning", "super");
+    // $db = mysqli_select_db($conn, 'up_and_running');
     
     if(isset($_POST['book-checkout'])){
     

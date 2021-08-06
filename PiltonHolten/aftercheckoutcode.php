@@ -24,7 +24,7 @@ echo $checkoutcustid;
 
 $query1 = "INSERT into booked_room_service (cust_id, room_id, roomtype_id, checkin, checkout, price, total_price, payment_id) values ('$checkoutcustid', '$checkroom_id', '$checkroomtype_id', '$checkin', '$checkout', '$price', '$totalprice', $payment_id)";
 
-$bookedinsert = mysqli_query($con, $query1) or die(mysqli_error($con));
+$bookedinsert = mysqli_query($conn, $query1) or die(mysqli_error($conn));
 
     if($bookedinsert){
     header("Location: index.php");

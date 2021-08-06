@@ -38,7 +38,7 @@
                 // $con = mysqli_connect("localhost", "upandrunning", "super");
                 // $db = mysqli_select_db($conn, 'up_and_running');
                 
-                $query = " select * from test_room";
+                $query = " SELECT * FROM test_room";
                 $result = mysqli_query($conn, $query);
 
                 while($roomdisplay = mysqli_fetch_array($result)){

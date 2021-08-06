@@ -3,7 +3,7 @@
 $serverName ="localhost";
 $dBUsername ="root";
 $dBPassword ="";
-$dBName ="seller";
+$dBName ="piltonhotel";
 
 //connection to the database
 $conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);

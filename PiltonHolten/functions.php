@@ -1,13 +1,15 @@
 <?php
+include "connection.php";
+// include "login.php";
 
-function check_login($con){
+function check_login($conn){
 
     if (isset($_SESSION['cust_id'])){   //check if "$_SESSION['just_id']" this value is set or not
 
         $id = $_SESSION['cust_id'];
-        $query = "select * from cust_acc where cust_id = '$id' limit 1";
+        $query = "SELECT * FROM cust_acc WHERE cust_id = '$id' limit 1";
 
-        $result = mysqli_query($con, $query);
+        $result = mysqli_query($conn, $query);
         if($result && mysqli_num_rows($result) > 0){
             $user_data = mysqli_fetch_assoc($result);   //assoc means associative array
             return $user_data;
@@ -36,9 +38,9 @@ function random_num($length){
     return $text;
 }
 
-function display($con){     //dunno if this function still works onot
+function display($conn){     //dunno if this function still works onot
     $query = "select * from test_room";
-    $result = mysqli_query($con, $query);
+    $result = mysqli_query($conn, $query);
     $roomdisplay = mysqli_fetch_array($result);
     return $roomdisplay;
 

@@ -37,9 +37,9 @@ if(isset($_POST['checkout'])){
 
     // $query1 = "INSERT into booked_room_service (cust_id, room_id, roomtype_id, checkin, checkout, price, payment_id) values ('$checkoutcustid', '$checkroom_id', '$checkroomtype_id', '$checkin', '$checkout', '$price', $payment_id)";      	
 
-    $query = "INSERT into payments (payment_id, card_no, card_name, exp_date, payment_date, total_price) values ('$payment_id', '$card_no', '$card_name', '$exp_year', '$date_now', '$totalprice')";
+    $query = "INSERT into rpayments (payment_id, card_no, card_name, exp_date, payment_date, total_price) values ('$payment_id', '$card_no', '$card_name', '$exp_year', '$date_now', '$totalprice')";
     
-    $paymentinsert =  mysqli_query($con, $query);
+    $paymentinsert =  mysqli_query($conn, $query);
 
     // $bookedinsert = mysqli_query($con, $query1);
     

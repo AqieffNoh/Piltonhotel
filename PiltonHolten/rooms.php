@@ -5,9 +5,9 @@
     include("functions.php");
     // include("header.php");
 
-    $user_data = check_login($con);
+    $user_data = check_login($conn);
     // $bookdeets = search($con);
-	  $roomdisplay = display($con);
+	  $roomdisplay = display($conn);
     $date_now = date('d-m-y');
     
 
@@ -29,8 +29,8 @@
   <div class="column-left">
   <?php
 
-    // $conn = mysqli_connect("localhost", "upandrunning", "super");
-    // $db = mysqli_select_db($conn, 'up_and_running');
+    $conn = mysqli_connect("localhost", "seller", "");
+    $db = mysqli_select_db($conn, 'seller');
 
 
     if(isset($_GET['room'])){

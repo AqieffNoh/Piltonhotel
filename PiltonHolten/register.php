@@ -58,19 +58,19 @@ button:hover {
         <h1>Request as a seller</h1>
         <form class="s_regis_form" action="includes/s_regis.inc.php" method="POST">
             <label for="name">Full Name: </label><br>
-            <input type="text" name="name" placeholder="Fullname" required><br>
+            <input type="text" name="name" placeholder="Fullname : Felix Ho" required><br>
             <label for="birthd">Date of Birth: </label><br>
-            <input type="date" name="birthd" placeholder="Date of birth" required><br>
+            <input style="width: 50%;" type="date" name="birthd" placeholder="Date of birth: 12/02/2000" required><br>
             <label for="email">Email Address: </label><br>
-            <input type="text" name="email" placeholder="E-mail" required><br>
+            <input style="width: 50%;" type="email" name="email" placeholder="E-mail : Felix@example.com" required><br>
             <label for="phone">Phone Number: </label><br>
-            <input type="text" name="phone" placeholder="Phone number" required><br>
+            <input type="text" name="phone" placeholder="Phone number: 01122772391" required><br>
             <label for="desc">Description: </label><br>
-            <textarea  rows = "3" cols = "100" name = "desc" placeholder="Tell us why you which to become a seller or what are you going to sell..." required></textarea><br>
+            <textarea style="width: 50%;" rows = "3" cols = "100" name = "desc" placeholder="Tell us why you which to become a seller or what are you going to sell..." required></textarea><br>
             <label for="r_date">Request date: </label><br>
             <input type="text" id="r_date" name="r_date" style="width: 10%;" value=<?php echo $date_now?> readonly>
         <br>
-        <h>Please note that your information will be sent to the Pilton admin to verify, Please fill in carefully.</h>
+        <h>*Please note that your information will be sent to the Pilton admin to verify, Please fill in carefully.</h>
         <h>You will receive an E-mail once your seller account is verified. Stay tuned</h>
         <br>
         <button type="submit" name="s_regis_submit">Send Request</button>

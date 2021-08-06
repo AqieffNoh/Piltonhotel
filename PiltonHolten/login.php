@@ -13,7 +13,7 @@ session_start();
         if (!is_numeric($email)) {
             
             $query = "select * from cust_acc where email = '$email' and password = '$password'";
-            $result = mysqli_query($con, $query);
+            $result = mysqli_query($conn, $query);
 
             if ($result) {
                 if($result && mysqli_num_rows($result) > 0){
@@ -23,7 +23,7 @@ session_start();
                     if($user_data['password'] === $password){
                         
                         $_SESSION['cust_id'] = $user_data['cust_id'];
-                        header("Location: index.php");
+                        header("Location: home.php");
                         die;
                     }
                 }
@@ -45,21 +45,7 @@ session_start();
     
 </head>
 <body>
-
-
-<div class="log-form">
-  <h2>Login to Pilton</h2>
-  <form class="cust_login"  method="POST">
-    <input type="email" name="cust_email" id="cust_email" required placeholder="Your@email.com">
-    <input type="password" name="cust_password" id="cust_password" required placeholder="Your password here">
-    <button class="btn" id="log" name = "loginbtn" type="submit">To Pilton!</button><br>   
-    <a href="signin.php">New to Pilton Hotel? Join us!</a>
-  </form>
-</div>
-
-    <!-- <pre>
-
-
+    <pre>
     <h1>Hey there!</h1>
     <h2>Welcome, please login to Pilton Hotel.</h2>
     <form class="cust_login"  method="POST">
@@ -78,14 +64,3 @@ session_start();
 </body>
 
 </html>
-
-<style>
-html{
-  box-sizing: border-box;
-}
-
-*, *::before, *::after{
-    box-sizing: border-box;
-}
-
-</style>

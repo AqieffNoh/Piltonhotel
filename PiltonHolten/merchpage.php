@@ -69,11 +69,7 @@ box-sizing: border-box;
   flex-wrap: wrap;
 }
 
-.wholeside{
-  /* position: -webkit-sticky;
-  position: sticky; */
-  top: 0;
-}
+
 
 .sidebar {
   float: center;
@@ -110,7 +106,7 @@ box-sizing: border-box;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 1000px;
   margin: 0 auto;
   gap: 5px;
@@ -131,7 +127,8 @@ float: left;
   width: 33.33%;
   padding: 5px;
 height: 539;
-margin: 15px;
+/* margin-left: 100px; */
+margin: 35px;
 text-align: center;
 font-family: arial;
 }
@@ -151,7 +148,8 @@ padding: 0 5% 10px;
 }
 
 .card-info > h1{
-margin: 0;
+  height: 80px;
+  margin: 0;
 }
 
 .price {
@@ -242,13 +240,13 @@ include "searchBar.php";
               {
 
     ?>
-      <div class="card-flex-container">
+      <!-- <div class="card-flex-container"> -->
                 <div class="card">
                     <div class="card-img">
                     <img src="seller/images/<?php echo $row['picture'];?>" alt="Merch Image"  height='250px'>
                     </div>
                     <div class="card-info">
-                    <h1><?php echo $row['merch_name']; ?></h1>
+                    <h1 style="font-size:20px;"><?php echo $row['merch_name']; ?></h1>
                     <p class="price">RM <?php echo ($row['price']); ?></p>
                     <button ><a href="product.php?product=<?php echo $row['merch_name']; ?>" style="color: white;">Details</a></button>
                     <input type="hidden" name="Product_ID" value=<?php echo $row['merch_id'];?> >
@@ -257,7 +255,7 @@ include "searchBar.php";
                     </div>
                 </div>  
                 </div>
-              </div>
+              <!-- </div> -->
     <?php
               }
           }
