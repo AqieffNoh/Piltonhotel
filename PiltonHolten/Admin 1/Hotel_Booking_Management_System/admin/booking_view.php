@@ -34,8 +34,8 @@
   <div class="container-fluid" style="padding-top:70px;">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h4 class="m-0 font-weight-bold text-primary">Payment
-            <a href="index.php?page=Payments" class="btn btn-primary" style = "float: right;">BACK</a>
+            <h4 class="m-0 font-weight-bold text-primary">Booking
+                <a href="index.php?page=bookings" class="btn btn-primary" style = "float: right;">BACK</a>
             </h4>
         </div>
     
@@ -50,7 +50,7 @@
                     //retrieve data from database
                     $connection = mysqli_connect("localhost", "root", "", "piltonhotel") or die(mysqli_error($connection));
 
-                    $query = "SELECT * FROM payments where payment_id ='$id'";
+                    $query = "SELECT * FROM booked_room_service where booked_id ='$id'";
                     $query_run = mysqli_query($connection, $query);
 
                 }
@@ -71,28 +71,40 @@
                     ?>
                     <tbody>
                         <tr>
-                        <td>Payment ID</td>
-                        <td><?php echo $row['payment_id']; ?></td>
+                        <td>Booking ID</td>
+                        <td><?php echo $row['booked_id']; ?></td>
                         </tr>       
                         <tr>
-                        <td>Name</td>
-                        <td><?php echo $row['card_name']; ?></td>
+                        <td>Customer ID</td>
+                        <td><?php echo $row['cust_id']; ?></td>
                         </tr>  
                         <tr>
-                        <td>Pay Date</td>
-                        <td><?php echo $row['payment_date']; ?></td>
+                        <td>Room ID</td>
+                        <td><?php echo $row['room_id']; ?></td>
                         </tr>  
                         <tr>
-                        <td>Card Number</td>
-                        <td><?php echo $row['card_no']; ?></td>
+                        <td>Room Type</td>
+                        <td><?php echo $row['roomtype_id']; ?></td>
                         </tr>  
                         <tr>
-                        <td>Expiration Date</td>
-                        <td><?php echo $row['exp_date']; ?></td>
+                        <td>Check In</td>
+                        <td><?php echo $row['checkin']; ?></td>
                         </tr>
                         <tr>
-                        <td>Amount Paid</td>
+                        <td>Check Out</td>
+                        <td><?php echo $row['checkout']; ?></td>
+                        </tr> 
+                        <tr>
+                        <td>Days Stay</td>
+                        <td><?php echo $row['days_stayed']; ?></td>
+                        </tr> 
+                        <tr>
+                        <td>Total Price</td>
                         <td><?php echo $row['total_price']; ?></td>
+                        </tr> 
+                        <tr>
+                        <td>Payment ID</td>
+                        <td><?php echo $row['payment_id']; ?></td>
                         </tr> 
                         <?php
                     }

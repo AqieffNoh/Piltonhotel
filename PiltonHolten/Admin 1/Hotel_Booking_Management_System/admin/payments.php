@@ -55,12 +55,12 @@
                                 {
                                     ?>
                                 <tr>
-                                    <td><?php echo $row['PaymentID']; ?></td>
-                                    <td><?php echo $row['Name']; ?></td>
-                                    <td><?php echo $row['PayDate']; ?></td>
+                                    <td><?php echo $row['payment_id']; ?></td>
+                                    <td><?php echo $row['card_name']; ?></td>
+                                    <td><?php echo $row['payment_date']; ?></td>
                                     <td>
                                         <form action="payments_view.php" method="post">
-                                            <input type="hidden" name="view_id" value="<?php echo $row['PaymentID']; ?>">
+                                            <input type="hidden" name="view_id" value="<?php echo $row['payment_id']; ?>">
                                             <button type="submit" name="viewbtn" class="btn btn-primary">VIEW</button>
                                         </form>
                                     </td>

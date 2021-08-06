@@ -27,6 +27,8 @@ Page level custom scripts
 <script src="js/demo/chart-pie-demos.js"></script> -->
 
 <!-- delete popup script -->
+
+<!-- delete pop-up for content -->
 <script>
 
     $(document).ready(function() {
@@ -47,6 +49,7 @@ Page level custom scripts
 
 </script>
 
+<!-- delete pop-up for event -->
 <script>
 
     $(document).ready(function() {
@@ -67,6 +70,7 @@ Page level custom scripts
 
 </script>
 
+<!-- delete pop-up for add Ons -->
 <script>
 
     $(document).ready(function() {
@@ -87,6 +91,7 @@ Page level custom scripts
 
 </script>
 
+<!-- delete pop-up for seller -->
 <script>
 
     $(document).ready(function() {
@@ -107,6 +112,49 @@ Page level custom scripts
 
 </script>
 
+<!-- delete pop-up for room -->
+<script>
+
+    $(document).ready(function() {
+        $('.deleteroombtn').on('click', function() {
+
+            $('#deleteroommodal').modal('show'); //bootstrap script
+            $tr = $(this).closest('tr');
+
+            var data = $tr.children("td").map(function(){
+                return $(this).text();
+            }).get();
+
+            console.log(data);
+
+            $('#delete_id').val(data[0]);
+        });
+    });
+
+</script>
+
+<!-- delete pop-up for customer -->
+<script>
+
+    $(document).ready(function() {
+        $('.deletecustomerbtn').on('click', function() {
+
+            $('#deletecustomermodal').modal('show'); //bootstrap script
+            $tr = $(this).closest('tr');
+
+            var data = $tr.children("td").map(function(){
+                return $(this).text();
+            }).get();
+
+            console.log(data);
+
+            $('#delete_id').val(data[0]);
+        });
+    });
+
+</script>
+
+<!-- Datatables for seller -->
 <script>
 
 $(document).ready(function() {
@@ -114,6 +162,34 @@ $(document).ready(function() {
     language: {
         search: "_INPUT_",
         searchPlaceholder: "Search Username"
+    }
+    });
+} );
+
+</script>
+
+<!-- Datatables for Bookings -->
+<script>
+
+$(document).ready(function() {
+    $('#bookingstable').DataTable({
+    language: {
+        search: "_INPUT_",
+        searchPlaceholder: "Search Bookings ID"
+    }
+    });
+} );
+
+</script>
+
+<!-- Datatables for Customers -->
+<script>
+
+$(document).ready(function() {
+    $('#customertable').DataTable({
+    language: {
+        search: "_INPUT_",
+        searchPlaceholder: "Search Name or Email"
     }
     });
 } );

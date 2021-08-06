@@ -37,7 +37,7 @@ if(isset($_POST['addbtn']))
 }
 
 
-//update content query
+//update seller query
 if(isset($_POST['updatebtn']))
 {
 
@@ -69,7 +69,7 @@ if(isset($_POST['updatebtn']))
 
 }
 
-//delete content query
+//delete seller query
 if(isset($_POST['deletebtn']))
 {
     $id = $_POST['delete_id'];

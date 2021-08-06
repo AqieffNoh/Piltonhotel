@@ -74,7 +74,7 @@
                                 <input type="date" name="edit_Date" value="<?php echo $row['Date'] ?>" class="form-control">
                             </div>
                             <br>
-                            <a href="content.php" class="btn btn-danger">Cancel</a>
+                            <a href="index.php?page=events" class="btn btn-danger">Cancel</a>
                             <button type="submit" name="updatebtn" class="btn btn-primary">Update</button>
 
                         </form>

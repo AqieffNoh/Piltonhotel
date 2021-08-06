@@ -31,10 +31,10 @@
   </div>
 
 
-<div class="container-fluid" style="padding-top:70px;">
+<div class="container-fluid">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Edit Add-On</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Edit Room</h6>
         </div>
     
         <div class="card-body">
@@ -46,30 +46,27 @@
                 {
                     $id = $_POST['edit_id'];
                 
-                    $query = "SELECT * FROM add_ons WHERE AddOnID='$id'";
+                    $query = "SELECT * FROM hotel_rooms WHERE room_id='$id'";
                     $query_run = mysqli_query($connection, $query);
 
                     foreach($query_run as $row)
                     {
                     ?>  
-                        <form action="addoncode.php" method="POST">
-                            <input type="hidden" name="edit_id" value="<?php echo $row['AddOnID'] ?>">
-                            <div class="form-group">
-                                <label>Name</label>
-                                <input type="text" name="edit_Name" value="<?php echo $row['Name'] ?>" class="form-control" placeholder="Enter Name" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Description</label>
-                                <textarea name="edit_Desc" cols = "40" rows="4" class="form-control" placeholder="Enter Description" required><?php echo $row['Description'] ?></textarea>
-                            </div>
-                            <div class="form-group">
-                            <label>Price</label>
-                                <input type="number" name="edit_Price" value="<?php echo $row['Price'] ?>" class="form-control" step=".01" required>
-                            </div>
-                            <br>
-                            <a href="index.php?page=AddOn" class="btn btn-danger">Cancel</a>
-                            <button type="submit" name="updatebtn" class="btn btn-primary">Update</button>
+                        <form action="roomcode.php" method="post">
+                        <div class="modal-body">
 
+                            <div class="form-group">
+                                <label>Room ID</label>
+                                <input type="number" name="roomID" value="<?php echo $row['room_id']; ?>" class="form-control" placeholder="Enter Room ID">
+                            </div>
+                            <div class="form-group">
+                                <label>Room Type</label>
+                                <input type="number" name="roomtypeID" value="<?php echo $row['roomtype_id']; ?>" class="form-control" placeholder="Enter Room Type">
+                                <h6>Room type is limited to: <br> 1-Deluxe <br> 2-Double Deluxe</h6>
+                            </div>
+                        </div>
+                            <a href="hotelrooms.php" class="btn btn-danger">Cancel</a>
+                            <button type="submit" name="updatebtn" class="btn btn-primary">Update Room</button>
                         </form>
                     <?php
                     }
