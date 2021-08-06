@@ -1,10 +1,11 @@
 <?php
-session_start();
+  session_start();
 
     include("connection.php");
-    include("functions.php");
     include("header.php");
-
+    include("functions.php");
+    
+  
     $user_data = check_login($con);
     // $bookdeets = search($con);
 	$roomdisplay = display($con);
@@ -24,12 +25,18 @@ session_start();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
+
   <main>
-        <img src="images\background1.jpg" alt="">
-		<h1>Pilton Hotel</h1>
-		<br>
+
+            <section class="header">
+            <div class="text-box">
+                <h1>Pilton Hotel</h1>
+                <p>Hello, <?php echo $user_data['fname']; ?> <?php echo $user_data['lname']; ?>. Start booking now!</p>  
+            </div>
+            </section>
+                
 		<!--This will show the name, email, etc. that is stored in $user_data php variable-->
-		<p>Hello, <?php echo $user_data['fname']; ?> <?php echo $user_data['lname']; ?>. Start booking now!</p>
+		
 	<!-------------------------------------------------------------------------------------------------------------------------------------------->
 	
         <section class="card-flex-container">

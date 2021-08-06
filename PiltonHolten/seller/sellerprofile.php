@@ -127,12 +127,12 @@ button:hover {
             <div class="card-body">
                 <h1 class="heading-small text-muted mb-4">User information</h1>
                       <div class="form-group focused">
-                        <label class="form-control-label" for="input-username">Username</label>
+                        <label class="form-control-label" for="input-username">Username</label><br>
                         <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="<?php echo $row['s_username']; ?>" readonly>
                       </div>
 
                   <div class="row">
-                        <label class="form-control-label" for="input-full-name">Full Name</label>
+                        <label class="form-control-label" for="input-full-name">Full Name</label><br>
                         <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="<?php echo $row['s_name']; ?>" readonly>
                     </div>
 

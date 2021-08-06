@@ -1,6 +1,9 @@
 <?php
-    include 'includes/dbh.inc.php';
-    include_once "header.php";
+session_start();
+include "connection.php";
+include_once "header.php";
+include "functions.php";
+
 ?>
 
 <main>
@@ -110,14 +113,14 @@ h3{
 <section>
 
 <?php
-  include 'includes/dbh.inc.php';
+  // include 'includes/dbh.inc.php';
 
-    $user_data = check_login($conn);
-    $custid=$user_data['cust_id'];
+    $user_data = check_login($con);
+    $custid=$user_data['CustID'];
     $fname=$user_data['fname'];
     $lname=$user_data['lname'];
 
-    $query=mysqli_query($conn,"SELECT * FROM cust_acc WHERE cust_id='$custid'") or die(mysqli_error($conn));
+    $query=mysqli_query($con,"SELECT * FROM customer WHERE CustID='$custid'") or die(mysqli_error($con));
     $row=mysqli_fetch_array($query);
   ?>
 
@@ -127,11 +130,11 @@ h3{
           <!-- user profile form -->
           <form class="userProfile" action="u_profileEdit.php" method="POST" enctype="multipart/form-data" id="displayProfile">
 
-          <div name="customerID" style="display: none;"z>
+          <div name="customerID" style="display: none;">
                 <label name="customerID">Customer ID</label>
                 <textarea name=customerID>
                 <?php
-                  $user_data=['cust_id'];
+                  $user_data=['CustID'];
                 ?> 
                 </textarea>
 
@@ -182,9 +185,9 @@ $phone = $_POST['phone'];
 $email = $_POST['email'];
 
 
-$query="UPDATE cust_acc SET fname='$fname', lname='$lname', email='$email', phone='$phone'  WHERE cust_id ='$id'";
+$query="UPDATE customer SET email='$email', phone='$phone'  WHERE CustID ='$custid'";
 
-$rows=mysqli_query($conn,$query)or die(mysqli_error($conn));
+$rows=mysqli_query($con,$query)or die(mysqli_error($con));
 
 ?>
 
@@ -197,7 +200,7 @@ $rows=mysqli_query($conn,$query)or die(mysqli_error($conn));
 // header("location: ../sellerprofile.php?msg=profileEdited");
 // exit();
 
-mysqli_close($conn);
+mysqli_close($con);
 }
 ?>
 

@@ -30,6 +30,35 @@ body{
   font-size: 18px;
   line-height: 1.5;
 }
+
+.header{
+  height: 400px;
+  width: 100%;
+  background-image: linear-gradient(rgba(113, 114, 117, 0.7),rgba(59, 65, 90, 0.7)), url(images/plitonheader.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.text-box{
+  width: 90%;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+}
+
+.text-box h1{
+  font-size: 40px;
+}
+
+.text-box p{
+  margin: 10px 0 40px;
+  font-size: 15px;
+}
+
 /* 
 header img{
   width: 100%;
