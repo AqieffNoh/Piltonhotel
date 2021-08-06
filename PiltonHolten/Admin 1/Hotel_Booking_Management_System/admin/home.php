@@ -82,7 +82,7 @@ a.custom-menu-list span.icon{
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="card col-md-4 offset-2 bg-info float-left">
-				<a class="display:block;" href="index.php?page=booked">
+				<a class="display:block;" href="index.php?page=bookings">
 				<div class="card-body text-white">
 					<h4><b>Booking</b></h4>
 					<hr>
@@ -92,7 +92,7 @@ a.custom-menu-list span.icon{
 				</a>
 			</div>
 			<div class="card col-md-4 offset-2 bg-primary ml-4 float-left">
-				<a class="display:block;" href="index.php?page=rooms">
+				<a class="display:block;" href="index.php?page=hotelrooms">
 				<div class="card-body text-white">
 					<h4><b>Rooms</b></h4>
 					<hr>

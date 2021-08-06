@@ -6,6 +6,7 @@
             <h4 class="m-0 font-weight-bold text-primary">Bookings
             <a href="booking_add.php" class="btn btn-primary" style = "float: right;">Add Bookings</a>
             </h4>
+            <p>Status : 1=Pending, 2=Checked In, 3=Checked Out, 4=Cancelled</p>
         </div>
 
         <div class="card-body">
@@ -45,7 +46,7 @@
                             <th style="width: 10%;">Customer ID</th>
                             <th style="width: 10%;">Check In</th>
                             <th style="width: 10%;">Check Out</th>
-                            <th style="width: 5%;"></th>
+                            <th style="width: 5%;">Status</th>
                             <th style="width: 5%;"></th>
                         </tr>
                     </thead>
@@ -69,12 +70,7 @@
                                     <td><?php echo $row['cust_id']; ?></td>
                                     <td><?php echo $row['checkin']?></td>
                                     <td><?php echo $row['checkout']?></td>
-                                    <td>
-                                        <form action="booking_edit.php" method="post">
-                                            <input type="hidden" name="status_id" value="<?php echo $row['booked_id']; ?>">
-                                            <button type="submit" name="statusbtn" class="btn btn-primary">Status</button>
-                                        </form>
-                                    </td>
+                                    <td><?php echo $row['status']?></td>
                                     <td>
                                         <form action="booking_edit.php" method="post">
                                             <input type="hidden" name="edit_id" value="<?php echo $row['booked_id']; ?>">
