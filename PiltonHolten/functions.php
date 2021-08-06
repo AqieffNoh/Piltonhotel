@@ -2,10 +2,10 @@
 
 function check_login($con){
 
-    if (isset($_SESSION['cust_id'])){   //check if "$_SESSION['just_id']" this value is set or not
+    if (isset($_SESSION['CustID'])){   //check if "$_SESSION['just_id']" this value is set or not
 
-        $id = $_SESSION['cust_id'];
-        $query = "select * from cust_acc where cust_id = '$id' limit 1";
+        $id = $_SESSION['CustID'];
+        $query = "select * from customer where CustID = '$id' limit 1";
 
         $result = mysqli_query($con, $query);
         if($result && mysqli_num_rows($result) > 0){
@@ -37,7 +37,7 @@ function random_num($length){
 }
 
 function display($con){
-    $query = "select * from test_room";
+    $query = "select * from room_types";
     $result = mysqli_query($con, $query);
     $roomdisplay = mysqli_fetch_array($result);
     return $roomdisplay;

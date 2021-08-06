@@ -7,10 +7,10 @@ $dbname = "piltonhotel";
 
 
 //connection to the database
-$conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
+$con = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
 //if the connection failed
-if (!$conn) {
+if (!$con) {
     die("connection failed:". mysqli_connect_error());
 }
 

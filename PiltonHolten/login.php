@@ -9,6 +9,14 @@ session_start();
         $email = $_POST['cust_email'];
         $password = $_POST['cust_password'];
 
+        $dbhost = "localhost";
+        $dbuser = "root";
+        $dbpass = "";
+        $dbname = "piltonhotel";
+
+        //connection to the database
+        $con = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+
         //read from database
         if (!is_numeric($email)) {
             
@@ -22,7 +30,7 @@ session_start();
     
                     if($user_data['password'] === $password){
                         
-                        $_SESSION['cust_id'] = $user_data['cust_id'];
+                        $_SESSION['CustID'] = $user_data['CustID'];
                         header("Location: index.php");
                         die;
                     }
