@@ -4,7 +4,7 @@
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h4 class="m-0 font-weight-bold text-primary">Bookings
-            <a href="booking_add.php" class="btn btn-primary" style = "float: right;">Add Bookings</a>
+            <!-- <a href="booking_add.php" class="btn btn-primary" style = "float: right;">Add Bookings</a> function was excluded-->
             </h4>
             <p>Status : 1=Pending, 2=Checked In, 3=Checked Out, 4=Cancelled</p>
         </div>
