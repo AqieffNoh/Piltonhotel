@@ -74,7 +74,6 @@ $query = $conn->query("SELECT * FROM system_settings limit 1")->fetch_array();
 
 
   <main id="main" class=" alert-info">
-  	<h3 style="padding-right:50px;">Admin Login</h3>
   		<div id="login-left">
   			<!-- == You can logo or image herre == -->
   			<!-- <div class="logo">
@@ -84,7 +83,6 @@ $query = $conn->query("SELECT * FROM system_settings limit 1")->fetch_array();
   		<div id="login-right">
   			<div class="card col-md-8">
   				<div class="card-body">
-				  <h3">Admin Login</h3>
   					<form id="login-form" >
   						<div class="form-group">
   							<label for="username" class="control-label">Username</label>
