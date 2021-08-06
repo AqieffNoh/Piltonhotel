@@ -21,7 +21,6 @@
 				<a href="index.php?page=Payments" class="nav-item nav-Payments"><span class='icon-field'><i class="fa fa-credit-card"></i></span> Payment History</a>
 				<a href="index.php?page=Sellers" class="nav-item nav-Sellers"><span class='icon-field'><i class="fa fa-address-book"></i></span> Sellers</a>
 				<a href="index.php?page=customer" class="nav-item nav-customer"><span class='icon-field'><i class="fa fa-address-book"></i></span> Customers</a>
-				<a href="index.php?page=site_settings" class="nav-item nav-site_settings"><span class='icon-field'><i class="fa fa-cogs"></i></span> Site Settings</a>
 				
 			<?php endif; ?>
 		</div>
