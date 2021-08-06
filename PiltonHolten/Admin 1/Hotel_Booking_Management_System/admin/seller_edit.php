@@ -100,7 +100,7 @@
                         </div>
                         <br>
                     <div style="float: right;">
-                            <a href="Sellers.php" class="btn btn-danger">Cancel</a>
+                            <a href="index.php?page=Sellers" class="btn btn-danger">Cancel</a>
                             <button type="submit" name="updatebtn" class="btn btn-primary">Update Seller</button>
                     </div>
                     </form>
