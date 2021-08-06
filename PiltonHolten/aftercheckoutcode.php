@@ -22,7 +22,7 @@ $totalprice = $_SESSION['cooktp'];
 
 echo $checkoutcustid;
 
-$query1 = "INSERT into booked_room_service (cust_id, room_id, roomtype_id, checkin, checkout, price, total_price, payment_id) values ('$checkoutcustid', '$checkroom_id', '$checkroomtype_id', '$checkin', '$checkout', '$price', '$totalprice', $payment_id)";
+$query1 = "INSERT into booked_room_service (cust_id, room_id, roomtype_id, checkin, checkout, price, total_price, payment_id, status) values ('$checkoutcustid', '$checkroom_id', '$checkroomtype_id', '$checkin', '$checkout', '$price', '$totalprice', $payment_id , '1')";
 
 $bookedinsert = mysqli_query($conn, $query1) or die(mysqli_error($conn));
 
@@ -32,6 +32,7 @@ $bookedinsert = mysqli_query($conn, $query1) or die(mysqli_error($conn));
     }
 
 }
+// header("Location: index.php");
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +55,7 @@ $bookedinsert = mysqli_query($conn, $query1) or die(mysqli_error($conn));
     <input type="text" name="checkoutcust_id" style=" display:;" value="<?php echo $_SESSION['cookpr']?>"></input>
     <input type="text" name="checkoutcust_id" style=" display:;" value="<?php echo $_SESSION['cookpid']?>"></input>
     <button type="submit" name="aftercheckout">Yes</button>
-    <button>No</button>
+    <a href="rooms.php"><button>No</button></a>
     </form>
 </body>
 </html>

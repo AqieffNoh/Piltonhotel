@@ -38,13 +38,12 @@ function random_num($length){
     return $text;
 }
 
-function display($conn){     //dunno if this function still works onot
+
+function display($con){
+
     $query = "select * from test_room";
     $result = mysqli_query($conn, $query);
     $roomdisplay = mysqli_fetch_array($result);
     return $roomdisplay;
-
 }
-
-
 ?>

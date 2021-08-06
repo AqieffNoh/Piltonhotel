@@ -12,8 +12,10 @@ session_start();
         //read from database
         if (!is_numeric($email)) {
             
-            $query = "select * from cust_acc where email = '$email' and password = '$password'";
-            $result = mysqli_query($conn, $query);
+
+            $query = "select * from customer where email = '$email' and password = '$password'";
+            $result = mysqli_query($con, $query);
+
 
             if ($result) {
                 if($result && mysqli_num_rows($result) > 0){
@@ -63,4 +65,6 @@ session_start();
     </pre> 
 </body>
 
+
 </html>
+

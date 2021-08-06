@@ -1,19 +1,10 @@
 <?php
 
-// $dbhost = "localhost";
-// $dbuser = "root";
-// $dbpass = "";
-// $dbname = "up_and_running";
+$dbhost = "localhost";
+$dbuser = "root";
+$dbpass = "";
+$dbname = "piltonhotel";
 
-// if(!$con = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)){ // "!" means not, if not connected...
-
-//     die("failed to connect.");
-// }      
-
-$serverName ="localhost";
-$dBUsername ="root";
-$dBPassword ="";
-$dBName ="seller";
 
 //connection to the database
 $conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
@@ -22,4 +13,9 @@ $conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
 if (!$conn) {
     die("connection failed:". mysqli_connect_error());
 }
- ?>
+
+
+    die("failed to connect.");
+}
+?>
+
