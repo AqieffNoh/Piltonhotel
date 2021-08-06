@@ -70,8 +70,8 @@ box-sizing: border-box;
 }
 
 .wholeside{
-  position: -webkit-sticky;
-  position: sticky;
+  /* position: -webkit-sticky;
+  position: sticky; */
   top: 0;
 }
 

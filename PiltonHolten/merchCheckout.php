@@ -1,6 +1,6 @@
 <?php
     include "header.php";
-
+    include "includes/dbh.inc.php";
 ?>
 
 <main>
@@ -97,35 +97,88 @@ span.price {
   .col-25 {
     margin-bottom: 20px;
   }
+
+}
+.cartha input[type=text], select {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.cartha input[type=submit] {
+  width: 50%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cartha input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.cartha {
+  border-radius: 5px;
+  background-color: rgb(159, 194, 171);
+  padding: 20px;
+  margin-left:350px;
+  margin-right:250px;
+  text-align: center;
+}
+
+.cartha button {
+  background-color: #04AA6D;
+  color: white;
+  border-radius: 10px;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.cartha button:hover {
+  opacity: 0.8;
 }
 </style>
 
 <?php
-if(isset($_POST['cart']));
 
-$mname = $_POST['name'];
-$mqty = $_POST['product_qty'];
-$mprice = $_POST['cost'];
-$mid = $_POST['iteam_code'];
-$total = $_POST['total'];
-$pdate = $_POST['date'];
+  $orderno = $_GET['orderno'];
 
+  $sql = mysqli_query($conn, "SELECT merch.merch_id, merch_order.merch_id, merch.merch_name, m_order_no, merch_order.quantity, amount FROM merch_order JOIN merch ON merch.merch_id=merch_order.merch_id WHERE m_order_no = $orderno") or die( mysqli_error($conn));
 
- echo $user_data['fname'];
+  while($row = mysqli_fetch_array($sql)){
 ?>
-<div>
-<h1><?php echo $mname ?></h1>
-<h1><?php echo $mqty ?></h1>
-<h1><?php echo $mprice ?></h1>
-<h1><?php echo $total ?></h1>
-<h1><?php echo $pdate ?></h1>
+
+
+<div class="cartha">
+  <h1>Confirmation</h1>
+  <label for="">Merch Order Number:</label><br>
+  <input type="text" name="orderno" value="<?php echo $row['m_order_no'] ;?>" readonly><br>
+  <label for="">Merch Name:</label><br>
+  <input type="text" value="<?php echo $row['merch_name'] ;?>" readonly><br>
+  <label for="">Quantity:</label><br>
+  <input type="text" value="<?php echo $row['quantity'] ;?>" readonly><br>
+  <label for="">Total Price:</label><br>
+  <input type="text" value="<?php echo $row['amount'] ;?>" readonly>
+
+</div>
+
 
 
 
 <div class="row-checkout">
     <div class="col-75">
         <div class="container">
-            <form action="m_checkout.inc.php" method="POST">
+            <form action="includes/m_checkout.inc.php" method="POST">
                 <div class="row">                    
                     <div class="col-50">
                       <h3>Payment</h3>
@@ -136,14 +189,15 @@ $pdate = $_POST['date'];
                         <i class="fa fa-cc-mastercard" style="color:red;"></i>
                         <i class="fa fa-cc-discover" style="color:orange;"></i>
                       </div>
-                      <label for="m_order_no">Merch order no</label>
-                      <input type="text" id="m_order_no" name="m_order_no" value="<?php echo rand(10000,50000);?>" readonly>
+                      <input type="hidden" name="orderno" value="<?php echo $row['m_order_no'] ;?>" >
+                      <label for="date">Date</label>
+                      <input type="text" id="date" name="date" value="<?php  $orgDate = "17-07-2012";   $newDate = date("Y-m-d", strtotime($orgDate));  echo "$newDate" ;?>" readonly>
                       <label for="cname">Name on Card</label>
                       <input type="text" id="cname" name="cname" placeholder="John More Doe">
                       <label for="ccnum">Credit card number</label>
                       <input type="text" id="ccnum" name="ccnum" placeholder="1111-2222-3333-4444">
                       <label for="expmonth">Exp Month</label>
-                      <input type="text" id="expmonth" name="expmonth" placeholder="September">
+                      <input type="text" id="expmonth" name="expmonth" placeholder="01">
 
                   <div class="row">
                     <div class="col-50">
@@ -158,14 +212,15 @@ $pdate = $_POST['date'];
                 </div>
 
               </div>
-              <input type="submit" value="Continue and Pay" name="payment" class="btn">
+              <button type="submit" >Pay now</button>
+              <!-- <input type="submit" value="Continue and Pay" name="payment" class="btn"> -->
             </form>
         </div>
     </div>
 </div>
 
 
-
+<?php } ?>
 
 
 </main>

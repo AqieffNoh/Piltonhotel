@@ -1,6 +1,6 @@
 <?php
-    include "header.php";
-    include 'includes/dbh.inc.php';
+    include_once "header.php";
+    include_once 'includes/dbh.inc.php';
 
 ?>
 
@@ -151,10 +151,12 @@ button:hover {
 <!-- view merch order -->
 <section>
     <?php
-    $result = mysqli_query($conn,"SELECT * FROM merch_order ");
+    $check=$_SESSION["s_id"];
+    $result = mysqli_query($conn,"SELECT * FROM merch_order WHERE s_id='$check'");
 
     ?>
-
+    
+<input type="text" value="<? echo $check ?>">
 <h1 class="h1">Merchandise Orders</h1>
 		<table class="merch-order">
 
@@ -177,7 +179,7 @@ button:hover {
     {?>
 
     <tr>
-        <td class="text-center"><?php echo $row['m_order_no']; ?></td>
+        <td class="text-center" name="no"><?php echo $row['m_order_no']; ?></td>
         <td class="text-center">
         Customer ID: <br><?php echo $row['CustID'] ?><br>
         Merch ID: <br><?php echo $row['merch_id'] ?><br>
@@ -186,20 +188,33 @@ button:hover {
         </td>
         <td class="text-center">RM <?Php echo $row['amount']; ?></td>
         <td class="text-center"><?php echo $row['date']; ?></td>
-        <td class="text-center">Current Status: <?php echo $row['status'];?>
-          <button type="button" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Update Status</button></td>
+        <form action="includes/updateStatus.inc.php" method="POST">
+        <td class="text-center">Current Status: <?php echo $row['status'];?><br>
+        <input type="hidden" class="text-center" name="no" value="<?php echo $row['m_order_no']; ?>"><br>
+        <select name="status">
+                <option selected="true" disabled="true"  value="status ">ORDER STATUS...</option>
+                <option value="Pending Confirmation">PendingConfirmation</option>
+                <option value="Confirmed Order">ConfirmedOrder</option>
+                <option value="Processing">Processing</option>
+                <option value="Delivered">Delivered</option>
+                <option value="Return or Refund">Return/Refund</option>
+        </select>
+                <button type="submit" name="updateStatus" style="width:auto;">Update Status</button></td>
+                </form>
+                <!-- <button type="button" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Update Status</button></td> -->
     </tr>
 
   
     </tbody>
+    <?php }?>
     </table>
-
-    <div id="id01" class="modal">
+   
+    <!-- <div id="id01" class="modal">
     
   <form class="modal-content animate" action="includes/updateStatus.inc.php" method="POST">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
     <div class="container">
-    <div name="orderNo" style="display: none;">
+    <div name="orderNo" >
     <textarea  name="no"><?php echo $row['m_order_no']; ?> </textarea>
     </div>
       <h1>Status</h1>
@@ -214,8 +229,10 @@ button:hover {
 
     </div>
   </form>
-</div>
-<?php }?>
+
+</div> -->
+
+
 <script>
 // Get the modal
 var modal = document.getElementById('id01');
@@ -227,8 +244,8 @@ window.onclick = function(event) {
     }
 }
 </script>
-</main>	
 
+</main>	
 
 <?php
     include_once "footer.php";

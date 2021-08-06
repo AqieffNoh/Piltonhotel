@@ -1,12 +1,17 @@
 <?php
     include "header.php";
     include "includes/session.inc.php";
+    // $check=$_SESSION["s_id"];
+    // if(isset($_POST['login_submit'])) {
+    // // $name = $_POST['id'];      
+    // $_SESSION['s_id'] = $name;
+    // }
 ?>
 
 <main>
     <section>
         <h1>Welcome to Pilton Merchandise Seller Center: 
-    <?php echo "". "<font color='##fa5400'><i><b>".$login_session."</b></i></font>" ;?> </h1>
+    <?php echo "". "<font color='##fa5400'><i><b>".$login_session ."</b></i></font>" ;?> </h1>
 </section>
 
 <style>
@@ -211,7 +216,8 @@ button:hover {
 <!-- view merch order -->
 <section>
     <?php
-    $result = mysqli_query($conn,"SELECT * FROM merch_order ");
+    $check=$_SESSION["s_id"];
+    $result = mysqli_query($conn,"SELECT * FROM merch_order WHERE s_id='$check'");
 
     ?>
 
@@ -250,11 +256,11 @@ button:hover {
         <td class="text-center">Current Status: <?php echo $row['status'];?></td>
     </tr>
 
-  
+    <?php }?>
     </tbody>
     </table>
 
-<?php }?>
+
 
 <!-- view and edit merch -->
 <section>

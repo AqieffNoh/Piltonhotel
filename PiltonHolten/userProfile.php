@@ -174,11 +174,18 @@ h3{
 
 <div class="divider"></div>
 
+<!-- booked_id	cust_id	room_id	roomtype_id	checkin	checkout	days_stayed	price	payment_id	 -->
+
+
 <section>
     <?php
-    $sql1 = mysqli_query($conn, "SELECT * FROM booked_room_service JOIN test_room on test_room.roomtype_id = booked_room_service where cust_id = '$custid'") or die("Query error : " . mysqli_error($conn));
+
+    $user_data = check_login($conn);
+    $custid1=$user_data['cust_id'];
+
+    $sql1 = mysqli_query($conn, "SELECT * FROM booked_room_service JOIN test_room on test_room.roomtype_id = booked_room_service.roomtype_id where custid = '$custid1'") or die("Query error : " . mysqli_error($conn));
     ?>
-<h3 id="head" class="mb-0">My Bookings History</h3>
+<h3 id="head" class="mb-0">My Room Bookings</h3>
 
 <div id="tab1" class="tab_content">
     <table class="tablesorter" cellspacing="45"> 
@@ -197,7 +204,7 @@ h3{
             </thead>
             <tbody>
            
-</tbody>
+
 
 <?php while($row1 = mysqli_fetch_array($sql1)) {?>
 
@@ -211,12 +218,15 @@ h3{
         <td><?Php echo $row1['checkout']; ?></td>
         <td><?php echo $row1['total_price']; ?></td>        
     </tr>
-</table>
+
 </div>
-</section>
 <?php
     }
     ?>
+    </tbody>
+    </table>
+</section>
+
 
 <div class="divider"></div>
 
@@ -224,7 +234,7 @@ h3{
     <?php
     $sql = mysqli_query($conn,"SELECT merch_order.merch_id, CustID, m_order_no, merch_order.quantity, amount, date, status, merch_name, picture FROM merch_order JOIN merch ON merch.merch_id=merch_order.merch_id WHERE CustID='$custid'") or die("Query error : " . mysqli_error($conn));
     ?>
-<h3 id="head" class="mb-0">My Merch Order History</h3>
+<h3 id="head" class="mb-0">My Merch Order</h3>
 
 <div id="tab1" class="tab_content">
     <table class="tablesorter" cellspacing="45"> 
@@ -237,36 +247,35 @@ h3{
                 <th> Quantity </th>
                 <th> Total Amount </th>				
                 <th> Purchase Date </th>				
-                <th> Status </th>				
+                <th> Status </th>	
+                <th> Invoice </th>				
                 </tr>
             </thead>
             <tbody>
-           
-</tbody>
 
 <?php while($row = mysqli_fetch_array($sql)) {?>
-
+<form action="m_invoicePrint.php" method="POST">
     <tr>
-        <td><?php echo $row['m_order_no']; ?></td>
+        <td><input name="m_order" type="text" value="<?php echo $row['m_order_no']; ?>" readonly></td>
         <td><?php echo $row['merch_name']; ?></td>
         <td> <img src="seller/images/<?php echo $row['picture']; ?> " width="70" height="70"></td>
         <td><?php echo $row['quantity']; ?></td>
         <td><?Php echo $row['amount']; ?></td>
         <td><?php echo $row['date']; ?></td>
-        <td><?php echo $row['status']; ?></td>
+        <td><p><?php echo $row['status']; ?></p></td>
+        <td><button name="generate" class="btn btn-primary" >Generate invoice</button></td>
     </tr>
-</table>
+    </form>
 </div>
+<?php  } ?>
+</tbody>
+</table>
 </section>
 
-<section class="divider">
 
-
-
-</section>
 </main>
 
 <?php
-    }
+   
     include_once "footer.php";
 ?>

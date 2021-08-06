@@ -1,7 +1,7 @@
 <?php
-session_start();
 
     include("connection.php");
+
     include("functions.php");
     // include("header.php");
 
@@ -10,6 +10,7 @@ session_start();
 	  $roomdisplay = display($con);
     $date_now = date('d-m-y');
     
+
 ?>
 
 <!DOCTYPE html>
@@ -28,10 +29,8 @@ session_start();
   <div class="column-left">
   <?php
 
-    $conn = mysqli_connect("localhost", "upandrunning", "super");
-    $db = mysqli_select_db($conn, 'up_and_running');
-
-    
+    // $conn = mysqli_connect("localhost", "upandrunning", "super");
+    // $db = mysqli_select_db($conn, 'up_and_running');
 
 
     if(isset($_GET['room'])){

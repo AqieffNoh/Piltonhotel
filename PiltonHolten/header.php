@@ -189,6 +189,7 @@
                     <p1>Hey,<?php echo $user_data['fname']; ?> <?php echo $user_data['lname']; ?> it is nice to see you back!</p1>
                     <p>User</p>
                     <a href="userProfile.php">Account</a>
+                    <a href="logout.php">Log out</a>
                     <p>Seller</p>
 
                     <button onclick="document.getElementById('id01').style.display='block'" style="width: auto;">Seller login</button>

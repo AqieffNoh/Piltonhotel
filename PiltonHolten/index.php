@@ -4,6 +4,7 @@ session_start();
     include("connection.php");   //for connection, dbname, dbpassword,...
     include("functions.php");    //for customer's check_login & $_SESSION['cust_id']
     include("headerBef.php");       //for navbar header
+
     
 ?>
 

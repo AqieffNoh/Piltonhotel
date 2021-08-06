@@ -11,6 +11,56 @@
     <title>Merchandise Page</title>
     <link rel="stylesheet" type="text/css" href="style.css" >
     <link rel="stylesheet" href=https://pro.fontawesome.com/releases/v5.10.0/css/all.css>
+
+    <style>
+  input[type=text], select {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 50%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.merchhaedit {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  text-align: center;
+}
+
+button {
+  background-color: #04AA6D;
+  color: white;
+  border-radius: 10px;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+</style>
 </head>
 
 <body>
@@ -55,7 +105,7 @@
     <?php if($row = mysqli_fetch_array($result))
       {?> 
       
-        
+        <div class="merchhaedit">
         <div id="form_wrapper" class="form_wrapper">
         
         <table>
@@ -70,14 +120,14 @@
         <td>  
           <label> Merch Name: </label>
             
-            <input type="text" id="name" name="name" value="<?php echo $row['merch_name'];?>"  placeholder="Merchandise Name" required>
+            <input type="text" id="name" name="name" value="<?php echo $row['merch_name'];?>" style="width: 50%;" placeholder="Merchandise Name" required>
             <!-- <span class="error">This is an error</span> -->
         </td>
 
         <td>  
             <label>Price:</label>
       
-            <input type="text" id="price" name="price" value="<?php echo $row['price'];?>"  placeholder="Price" required>
+            <input type="text" id="price" name="price" value="<?php echo $row['price'];?>" style="width: 50%;" placeholder="Price" required>
         <!-- <span class="error">This is an error</span> -->
         </td>
       </tr>
@@ -86,7 +136,7 @@
         <td>   
             <label> Quantity: </label>
 
-            <input type="text" id="quantity" name="quantity" value="<?php echo $row['quantity'];?>" placeholder="Quantity" required>
+            <input type="text" id="quantity" name="quantity" value="<?php echo $row['quantity'];?>" style="width: 50%;" placeholder="Quantity" required>
         <!-- <span class="error">This is an error</span> -->
         </td>
 
@@ -98,8 +148,8 @@
             include('includes/dbh.inc.php');
             $name= mysqli_query($conn,"SELECT * FROM merch_category");
     
-            echo '<select  name="cname"  id="ml" class="ed">';
-            echo '<option selected="selected">Select</option>';
+            echo '<select  name="cname" style="width: 50%;"  id="ml" class="ed">';
+            echo '<option selected="selected" >Select</option>';
             while($res= mysqli_fetch_assoc($name))
             {
             
@@ -117,7 +167,7 @@
          <td>   
     
             <label>Description:</label>
-            <textarea name="desc" id="desc" cols="25" rows="3" placeholder="Merch description" required><?php echo $row['merch_desc'];?></textarea>
+            <textarea name="desc" id="desc" cols="25" rows="3" placeholder="Merch description" style="width: 50%;" required><?php echo $row['merch_desc'];?></textarea>
             <!-- <span class="error">This is an error</span> -->
          </td>
        </tr>
@@ -147,6 +197,7 @@
         </form>
                         
         </table>
+        </div>
         </div>
              <?php }?>
     
