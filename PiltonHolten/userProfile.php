@@ -113,14 +113,14 @@ h3{
 <section>
 
 <?php
-  include 'includes/dbh.inc.php';
+  // include 'includes/dbh.inc.php';
     
     $user_data = check_login($con);
     $custid=$user_data['CustID'];
     $fname=$user_data['fname'];
     $lname=$user_data['lname'];
 
-    $query=mysqli_query($conn,"SELECT * FROM customer WHERE CustID='$custid'") or die(mysqli_error($con));
+    $query=mysqli_query($con,"SELECT * FROM customer WHERE CustID='$custid'") or die(mysqli_error($con));
     $row=mysqli_fetch_array($query);
   ?>
 
@@ -235,7 +235,7 @@ h3{
 
 <section>
     <?php
-    $sql = mysqli_query($conn,"SELECT merch_order.merch_id, CustID, m_order_no, merch_order.quantity, amount, date, status, merch_name, picture FROM merch_order JOIN merch ON merch.merch_id=merch_order.merch_id WHERE CustID='$custid'") or die("Query error : " . mysqli_error($conn));
+    $sql = mysqli_query($con,"SELECT merch_order.merch_id, CustID, m_order_no, merch_order.quantity, amount, date, status, merch_name, picture FROM merch_order JOIN merch ON merch.merch_id=merch_order.merch_id WHERE CustID='$custid'") or die("Query error : " . mysqli_error($con));
     ?>
 <h3 id="head" class="mb-0">My Merch Order</h3>
 

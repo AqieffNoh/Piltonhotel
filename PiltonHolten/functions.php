@@ -14,6 +14,7 @@ function check_login($con){
         }
     }else{
         //if statement false(user_id not there, and not in db), redirect to login
+        // echo"you r not login";
         header("Location: login.php");
         die;
     }

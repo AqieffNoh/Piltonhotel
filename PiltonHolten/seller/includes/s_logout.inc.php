@@ -9,7 +9,7 @@ $_SESSION = array();
 session_destroy();
  
 // Redirect to login page
-header("location: \PiltonHotel\Piltonhotel\PiltonHolten\index.php");
+header("location: \PiltonHotel\Piltonhotel\PiltonHolten\home.php");
 
 exit;
 ?>

@@ -1,7 +1,4 @@
- <?php
-    // include "connection.php";
-    // include "functions.php";
-?> 
+
 
 <!DOCTYPE html>
 <html>
