@@ -52,7 +52,7 @@ include("headerBef.php");
                         <p class="price">RM <?php echo $roomdisplay['price']; ?></p>
                         <p><?php echo $roomdisplay['room_desc'] ?></p>
                     </div>
-                    <button><a href="rooms.php?room=<?php echo $roomdisplay['room_type']?>" style="text-decoration: none; color: #e0fff4;">Book Now</a></button>
+                    <button><a href="login.php" style="text-decoration: none; color: #e0fff4;">Book Now</a></button>
                 </div>            
                 <?php
                 } ?>
