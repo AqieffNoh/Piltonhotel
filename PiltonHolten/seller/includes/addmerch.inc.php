@@ -3,7 +3,7 @@
    include('dbh.inc.php');
 
 $fname = strtotime(date('Y-m-d H:i')).'_'.$_FILES['picture']['name'];
-$sql="INSERT INTO merch (s_id, category_ID, merch_name, merch_desc, quantity, price, picture) 
+$sql="INSERT INTO merch (s_id, category_id, merch_name, merch_desc, quantity, price, picture) 
 VALUES ('$_POST[sellerID]', '$_POST[cate]', '$_POST[name]', '$_POST[desc]','$_POST[quantity]',  '$_POST[price]', '$fname')";
 
 if (!mysqli_query($conn,$sql))
