@@ -92,7 +92,7 @@ html{
     }
 
     body{
-        margin-top: 100px;
+        margin-top: 90px;
         background-color: #fdfff2;
         text-align: center;
     }
@@ -111,7 +111,7 @@ h2{
 
     label{
       display: block;
-      padding: 15px;
+      padding: 13px;
     }
 
     input{
@@ -133,6 +133,7 @@ h2{
         font-size: large;
         font-family: 'Times New Roman', Times, serif;
     }
+
     button:hover{
       background-color: #628a92;
         color: #fdfff2;
@@ -145,11 +146,11 @@ h2{
         width: 40%;
         border: 5px solid #ebfefa;
         border-radius: 20px;
-        padding: 10PX;
+        padding: 10PX 10px 20px 10px;
     }
 
     .center label:last-of-type{
-        margin-bottom: 15px;
+        margin-bottom: 20px;
     }
 
 /*---Cornflower

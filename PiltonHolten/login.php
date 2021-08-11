@@ -83,7 +83,7 @@ html{
     }
 
     body{
-        margin-top: 170px;
+        margin-top: 165px;
         background-color: #fdfff2;
         text-align: center;
     }
@@ -147,7 +147,7 @@ h2{
         width: 40%;
         border: 5px solid #ebfefa;
         border-radius: 20px;
-        padding: 10PX;
+        padding: 10PX 10px 20px 10px;
     }
 
     .center label:last-of-type{
