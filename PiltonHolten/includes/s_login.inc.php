@@ -8,14 +8,14 @@ if(isset($_POST['login_submit'])) {
     require_once 'dbh.inc.php';
     
     if(empty($email) || empty($pwd)) {
-        header("Location: ../index.php?error=emptyfields");
+        header("Location: ../home.php?error=emptyfields");
         exit();
     }
     else {
         $sql = "SELECT * FROM seller_acc WHERE s_email=? AND s_password=?;";
         $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
-                header("Location: ../index.php?error=sqlerror");
+                header("Location: ../home.php?error=sqlerror");
                 exit();
             }
             else {
@@ -27,7 +27,7 @@ if(isset($_POST['login_submit'])) {
                         $hash = password_hash($pwd, PASSWORD_DEFAULT);
                         $checkPwd = password_verify($pwd, $hash);
                             if (!$checkPwd === true) {
-                                header("Location: ../index.php?error=wrongpwd");
+                                header("Location: ../home.php?error=wrongpwd");
                                 // die();
                                 exit();
                             }
@@ -40,12 +40,12 @@ if(isset($_POST['login_submit'])) {
                                 exit();
                             }
                             else {
-                                header("Location: ../index.php?error=loginfailed");
+                                header("Location: ../home.php?error=loginfailed");
                                 exit();
                             }
                     }
                     else{
-                        header("Location: ../index.php?error=wrongp");
+                        header("Location: ../home.php?wrongp");
                         echo "failed to login";
                         echo '<script>alert("Wrong Password")</script>';
                          exit();

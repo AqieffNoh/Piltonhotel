@@ -84,7 +84,7 @@ $bookedinsert = mysqli_query($con, $query1) or die(mysqli_error($con));
     <br>
     <button type="submit" name="aftercheckout" onclick="window.print();" class="btn btn-primary" id="print-btn">Yes</button>
     <!-- <button onclick="window.print();" class="btn btn-primary" id="print-btn">Print</button> -->
-    <a href="rooms.php"><button>No</button></a>
+    <button><a href="index.php">No</a></button>
     </form>
 </body>
 </html>

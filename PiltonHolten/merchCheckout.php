@@ -191,7 +191,7 @@ span.price {
                       </div>
                       <input type="hidden" name="orderno" value="<?php echo $row['m_order_no'] ;?>" >
                       <label for="date">Date</label>
-                      <input type="text" id="date" name="date" value="<?php  $orgDate = "17-07-2012";   $newDate = date("Y-m-d", strtotime($orgDate));  echo "$newDate" ;?>" readonly>
+                      <input type="text" id="date" name="date" value="<?php  $orgDate = "now";   $newDate = date("Y-m-d", strtotime($orgDate));  echo "$newDate" ;?>" readonly>
                       <label for="cname">Name on Card</label>
                       <input type="text" id="cname" name="cname" placeholder="John More Doe">
                       <label for="ccnum">Credit card number</label>

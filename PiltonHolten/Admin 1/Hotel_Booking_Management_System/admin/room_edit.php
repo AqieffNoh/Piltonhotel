@@ -65,7 +65,7 @@
                                 <h6>Room type is limited to: <br> 1-Deluxe <br> 2-Double Deluxe</h6>
                             </div>
                         </div>
-                            <a href="hotelrooms.php" class="btn btn-danger">Cancel</a>
+                            <a href="index.php?page=hotelrooms" class="btn btn-danger">Cancel</a>
                             <button type="submit" name="updatebtn" class="btn btn-primary">Update Room</button>
                         </form>
                     <?php

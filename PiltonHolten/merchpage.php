@@ -225,6 +225,7 @@ include "searchBar.php";
 </div>
 </section> 
 
+<section>
 <div>
     <br>
         <h2 style="text-align:center">Merchandise <br>All Items</h2>
@@ -261,12 +262,11 @@ include "searchBar.php";
           }
     ?>
           
-         
+        </div>       
 
-       
-
-
+        </section>
 </main>
+
 <?php
     include_once "footer.php";
 ?>

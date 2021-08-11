@@ -59,6 +59,7 @@ if( isset($_GET['product']) ) {
             ?>
 
 <section class="content">
+    <h1>Product Details</h1>
               <div class="row">
                   <div class="col-sm-9">
                       <div class="callout" id="callout" style="display:none">
@@ -161,3 +162,8 @@ $(function(){
 
 
 </main>
+
+<?php
+   
+    include_once "footer.php";
+?>

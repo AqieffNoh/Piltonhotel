@@ -1,6 +1,6 @@
 <?php
 session_start();
-$connection = mysqli_connect("localhost", "Aqieff", "test123", "piltonhotel");
+$connection = mysqli_connect("localhost", "root", "", "piltonhotel");
 
 //add content query
 if(isset($_POST['addbtn']))

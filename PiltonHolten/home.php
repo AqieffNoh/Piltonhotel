@@ -23,6 +23,13 @@ include("headerBef.php");
 </head>
 <body>
     <main>
+    <?php
+
+if (isset($_GET['wrongp'])){
+    
+echo '<p>seller. login failed!</p>';
+}
+?>
         <section class="header">
             <div class="text-box">
 		<h1>Pilton Hotel</h1>
@@ -120,7 +127,8 @@ include("headerBef.php");
 
 
 
-    
+
+
     </main>
 </body>
 <footer class="sticky-footer bg-white" style="margin:50px;">

@@ -15,7 +15,10 @@
         </div>
 </body>
 </html>
-
+<?php
+   
+    include_once "footer.php";
+?>
 <style>
     html{
     box-sizing: border-box;
