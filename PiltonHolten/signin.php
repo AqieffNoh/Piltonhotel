@@ -43,72 +43,135 @@ session_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width-device-width, initial-scale=1">
     <title>Pilton Hotel Sign Up</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="logo" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto&display=swap" rel="stylesheet">
     
 </head>
 <body>
-    <pre>
+<div class="center">
     <h1>Hey there!</h1>
     <h2>Come on, join Pilton Family!</h2>
-    <form class="cust_signin"  method="POST">
-        
-        <label for="cust_fname">First Name: </label>
-        <input id="cust_fname" name="cust_fname" type="text" required placeholder="Your first name here.">
-            
-        <label for="cust_lname">Last Name: </label>
-        <input id="cust_lname" name="cust_lname" type="text" required placeholder="Your last name here.">
-            
-        <label for="cust_email">Email Address: </label>
-        <input id="cust_email" name="cust_email" type="email" required placeholder="your@email.com">
-            
-        <label for="cust_password">Password: </label>
-        <input id="cust_password" name="cust_password" type="password" required placeholder="Make it difficult.">
+    
+      <form class="cust_signin"  method="POST">
+          
+          <label for="cust_fname">First Name:   
+          <input id="cust_fname" name="cust_fname" type="text" required placeholder="Your first name here."></label>
+              
+          <label for="cust_lname">Last Name:   
+          <input id="cust_lname" name="cust_lname" type="text" required placeholder="Your last name here."></label>
+              
+          <label for="cust_email">Email Address: 
+          <input id="cust_email" name="cust_email" type="email" required placeholder="your@email.com"></label>
+              
+          <label for="cust_password">Password:   
+          <input id="cust_password" name="cust_password" type="password" required placeholder="Make it difficult."></label>
 
-        <label for="cust_repass">Retype Password: </label>
-        <input id="cust_repass" name="cust_repass" type="password" required placeholder="Match it with password.">
-            
-        <label for="cust_phone">Phone No.: </label>
-        <input id="cust_phone" name="cust_phone" type="tel" required>
-        
-        <button id="log" type="submit">Join Us!</button>
-    </form>
-    </pre>
+          <label for="cust_repass">Retype Password: 
+          <input id="cust_repass" name="cust_repass" type="password" required placeholder="Match it with password."></label>
+              
+          <label for="cust_phone">Phone No.:   
+          <input id="cust_phone" name="cust_phone" type="tel" required placeholder="01200000000"></label>
+          
+          <button id="log" type="submit">Join Us!</button>
+      </form>
+    </div>
+    
 
     
 </body>
 </html>
 
-<!--
+<style>
+html{
+    box-sizing: border-box;
+    }
 
-<body class="text-center">
-    
-<main class="form-signin">
-  <form>
-    <img class="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    *, *::before, *::after{
+    box-sizing: border-box;
+    }
 
-    <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Email address</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Password</label>
-    </div>
+    body{
+        margin-top: 90px;
+        background-color: #fdfff2;
+        text-align: center;
+    }
 
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
-    </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
-  </form>
-</main>
+h1{
+  font-family: 'Permanent Marker', cursive;
+  font-size: 80px;
+  margin: 0 ;
+}
 
+h2{
+  font-family: 'Roboto', sans-serif;
+  margin-top: 0;
+  font-size: 18px;
+}
 
-    
-  </body>
+    label{
+      display: block;
+      padding: 13px;
+    }
 
--->
+    input{
+      background-color: #fdfff2;
+        color: #3a7a87;
+        padding: 5px;
+        border-radius: 5px;
+        border: 0.5px;        
+    }
+
+    button{
+      display: block;  
+      background-color: #fdfff2;
+        color: #3a7a87;
+        padding: 5px 150px;
+        border: 0.5px;
+        border-radius: 10px;
+        margin: 0 auto;
+        font-size: large;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    button:hover{
+      background-color: #628a92;
+        color: #fdfff2;
+    }
+
+    .center{
+        background-color: #ebfefa;
+        color: #3a7a87;
+        margin: 0 auto;
+        width: 40%;
+        border: 5px solid #ebfefa;
+        border-radius: 20px;
+        padding: 10PX 10px 20px 10px;
+    }
+
+    .center label:last-of-type{
+        margin-bottom: 20px;
+    }
+
+/*---Cornflower
+#86c8ee
+Black
+#181a1d
+
+Shamrock
+#55d4a2
+Tropical Rain Forest
+#204718
+
+brown
+#854f3e
+light mint
+#ebfefa
+
+White
+#fdfff2
+
+White #e0fff4
+Pine Green #3a7a87--*/
+
+</style>

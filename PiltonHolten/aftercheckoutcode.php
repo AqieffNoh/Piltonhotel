@@ -49,42 +49,120 @@ $bookedinsert = mysqli_query($con, $query1) or die(mysqli_error($con));
     <h1>Booking Confirmation</h1>
     <h2>Are you sure about this booking?</h2>
 
+		<div class="invoice-box">
+			<table>
+				<tr class="top">
+					<td colspan="2">
+						<table>
+							<tr>
+								<td class="title">
+									
+								</td>
+
+								<td>
+									Payment ID: <?php echo $_SESSION['cookpid']?><br />
+									Created: <?php echo $date_now?><br />
+									Since 2008
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+				<tr class="information">
+					<td colspan="2">
+						<table>
+							<tr>
+								<td>
+									Sparksuite, Inc.<br />
+									12345 Sunny Road<br />
+									Sunnyville, TX 12345
+								</td>
+
+								<td>
+									Pilton Corp.<br />
+									Mr. Pilton<br />
+									piltonhotel@gmail.com
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+				<tr class="heading">
+					<td>Your Details</td>
+
+					<td></td>
+				</tr>
+
+				<tr class="details">
+					<td>Name</td>
+
+					<td><?php echo $user_data['fname']?> <?php echo $user_data['lname']?></td>
+				</tr>
+
+				<tr class="heading">
+					<td>Your Booking</td>
+
+					<td></td>
+				</tr>
+
+				<tr class="item">
+					<td>Room ID</td>
+
+					<td><?php echo $_SESSION['cookcrid']?></td>
+				</tr>
+
+				<tr class="item last">
+					<td>Check In Date</td>
+
+					<td><?php echo $_SESSION['cookrci']?></td>
+				</tr>
+
+				<tr class="item last">
+					<td>Check Out Date</td>
+
+					<td><?php echo $_SESSION['cookrco']?></td>
+				</tr>
+
+				<tr class="item">
+					<td>Price per Night</td>
+
+					<td><?php echo $_SESSION['cookpr']?></td>
+				</tr>
+
+				<tr class="total">
+					<td></td>
+
+					<td>Total: <?php echo $_SESSION['cooktp']?></td>
+				</tr>
+			</table>
+		</div>
+
     <!-- <img src="..\images\Pilton.png.jpeg" alt="Company logo" style="width: 100%; max-width: 300px" /> -->
     <form action="aftercheckoutcode.php" method="POST">
-    <br><br>
+	<button type="submit" name="aftercheckout" onclick="window.print();" class="btn btn-primary" id="print-btn">Yes</button>
+    <!-- <button onclick="window.print();" class="btn btn-primary" id="print-btn">Print</button> -->
+    <a href="rooms.php"><button>No</button></a>
+
     <!-- <label for="">Customer ID</label> -->
     <input type="hidden" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cookcuid']?>"></input>
-    
-    <br>
     <!-- <label for="">Room Type ID</label> -->
     <input type="hidden" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cookrtid']?>"></input>
-    
-    <br>
     <!-- <label for="">Room ID</label> -->
     <input type="hidden" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cookcrid']?>"></input>
-    <br>
     <!-- <label for="">Check In Date</label> -->
     <input type="hidden" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cookrci']?>"></input>
-    <br>
     <!-- <label for="">Check Out Date</label> -->
     <input type="hidden" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cookrco']?>"></input>
-    <br>
     <!-- <label for="">Number of People</label> -->
     <input type="hidden" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cookrpn']?>"></input>
-    <br>
     <!-- <label for="">Price/night</label> -->
     <input type="hidden" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cookpr']?>"></input>
-    <br>
     <!-- <label for="">Total Price</label> -->
     <input type="hidden" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cooktp']?>"></input>
-    <br>
     <!-- <label for="">Payment ID</label> -->
     <input type="hidden" name="checkoutcust_id" style=" display:;" readonly value="<?php echo $_SESSION['cookpid']?>"></input>
-    <br>
-    <br>
-    <button type="submit" name="aftercheckout" onclick="window.print();" class="btn btn-primary" id="print-btn">Yes</button>
-    <!-- <button onclick="window.print();" class="btn btn-primary" id="print-btn">Print</button> -->
-    <button><a href="index.php">No</a></button>
     </form>
 </body>
 </html>
@@ -197,97 +275,3 @@ $bookedinsert = mysqli_query($con, $query1) or die(mysqli_error($con));
 				}
 			}
 		</style>
-	</head>
-
-	<body>
-		<div class="invoice-box">
-			<table>
-				<tr class="top">
-					<td colspan="2">
-						<table>
-							<tr>
-								<td class="title">
-									
-								</td>
-
-								<td>
-									Payment ID: <?php echo $_SESSION['cookpid']?><br />
-									Created: <?php echo $date_now?><br />
-									Since 2008
-								</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-
-				<tr class="information">
-					<td colspan="2">
-						<table>
-							<tr>
-								<td>
-									Sparksuite, Inc.<br />
-									12345 Sunny Road<br />
-									Sunnyville, TX 12345
-								</td>
-
-								<td>
-									Pilton Corp.<br />
-									Mr. Pilton<br />
-									piltonhotel@gmail.com
-								</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-
-				<tr class="heading">
-					<td>Your Details</td>
-
-					<td></td>
-				</tr>
-
-				<tr class="details">
-					<td>Name</td>
-
-					<td><?php echo $user_data['fname']?> <?php echo $user_data['lname']?></td>
-				</tr>
-
-				<tr class="heading">
-					<td>Your Booking</td>
-
-					<td></td>
-				</tr>
-
-				<tr class="item">
-					<td>Room ID</td>
-
-					<td><?php echo $_SESSION['cookcrid']?></td>
-				</tr>
-
-				<tr class="item last">
-					<td>Check In Date</td>
-
-					<td><?php echo $_SESSION['cookrci']?></td>
-				</tr>
-
-				<tr class="item last">
-					<td>Check Out Date</td>
-
-					<td><?php echo $_SESSION['cookrco']?></td>
-				</tr>
-
-				<tr class="item">
-					<td>Price per Night</td>
-
-					<td><?php echo $_SESSION['cookpr']?></td>
-				</tr>
-
-				<tr class="total">
-					<td></td>
-
-					<td>Total: <?php echo $_SESSION['cooktp']?></td>
-				</tr>
-			</table>
-		</div>
-	</body>
-</html>
