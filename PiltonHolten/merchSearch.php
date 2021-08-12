@@ -273,6 +273,4 @@ if(isset($_POST['submitSearch']))
 
 <?php include 'includes/scripts.inc.php'; ?>
 </main>
-<?php
-    include_once "footer.php";
-?>
+

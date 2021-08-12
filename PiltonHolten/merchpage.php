@@ -267,6 +267,4 @@ include "searchBar.php";
         </section>
 </main>
 
-<?php
-    include_once "footer.php";
-?>
+

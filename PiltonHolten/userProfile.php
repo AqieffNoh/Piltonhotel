@@ -17,6 +17,7 @@ h3{
 
 .row{
     text-align: center;
+    display: block;
 }
 
 .row input[type=text]{
@@ -30,7 +31,7 @@ h3{
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: block;
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
@@ -48,6 +49,10 @@ h3{
     color: black;
 }
 
+.label{
+  margin: 0 auto;
+  padding: 20px;
+}
 
 .divider{
     height: 5px;
@@ -105,6 +110,7 @@ h3{
   font-size:35px;
 }
 
+
 </style>
 
 <div class="divider">
@@ -148,8 +154,8 @@ h3{
                 <h3 id="head" class="heading-small text-muted mb-4">User information</h3>
                       
                   <div class="row">
-                        <label class="form-control-label" for="input-full-name">Full Name</label><br>
-                        <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="<?php echo $fname?> <?php echo $lname?>" readonly>
+                        <label class="label" for="input-full-name">Full Name : 
+                        <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="<?php echo $fname?> <?php echo $lname?>" readonly> 
                     </div>
 
                 </div>
@@ -159,13 +165,13 @@ h3{
                
                   
                 <div class="row">
-                        <label class="form-control-label" for="input-email">Email Address</label><br>
-                        <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="123@example.com" value="<?php echo $row['email']; ?>" readonly>
+                        <label class="label" for="input-email">Email Address : 
+                        <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="123@example.com" value="<?php echo $row['email']; ?>" readonly></label>
                       </div>
 
                       <div class="row">
-                        <label class="form-control-label" for="input-email">Phone Number</label><br>
-                        <input type="phone" id="input-phone" class="form-control form-control-alternative" placeholder="011-12345677" value="<?php echo $row['phone']; ?>" readonly>
+                        <label class="label" for="input-email">Phone Number : 
+                        <input type="phone" id="input-phone" class="form-control form-control-alternative" placeholder="011-12345677" value="<?php echo $row['phone']; ?>" readonly></label>
                       </div>
                       <button class="editbtn"><a href="u_profileEdit.php" title="Edit your profile">Edit Profile</a></button>
                   </div>

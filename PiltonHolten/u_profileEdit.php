@@ -17,7 +17,18 @@ h3{
 
 .row{
     text-align: center;
+    display: block;
 }
+
+.row~label{
+  padding: 100px;
+}
+
+.label{
+  margin: 0 auto;
+  padding: 20px;
+}
+
 
 .row input[type=text]{
   width: 200px;
@@ -148,10 +159,10 @@ h3{
                 <h3 id="head" class="heading-small text-muted mb-4">User information</h3>
                       
                   <div class="row">
-                        <label class="form-control-label" for="firstname">First Name</label>
-                        <input type="text" id="firstname" name="firstname" class="form-control form-control-alternative" placeholder="First name" value="<?php echo $fname?>" readonly>
-                        <label class="form-control-label" for="lastname">Last Name</label>
-                        <input type="text" id="lastname" name="lastname" class="form-control form-control-alternative" placeholder="First name" value="<?php echo $lname?>" readonly>
+                        <label class="label" for="firstname">First Name : 
+                        <input type="text" id="firstname" name="firstname" class="form-control form-control-alternative" placeholder="First name" value="<?php echo $fname?>" readonly> </label>
+                        <label class="form-control-label" for="lastname">Last Name : 
+                        <input type="text" id="lastname" name="lastname" class="form-control form-control-alternative" placeholder="First name" value="<?php echo $lname?>" readonly></label>
                     </div>
 
                 </div>
@@ -159,15 +170,14 @@ h3{
                 <!-- Address -->
                 <h3 id="head" class="heading-small text-muted mb-4">Contact Information</h3>
                
-                  
                 <div class="row">
-                        <label class="form-control-label" for="email">Email Address</label><br>
-                        <input type="email" id="email" name="email" class="form-control form-control-alternative" placeholder="123@example.com" value="<?php echo $row['email']; ?>" >
+                        <label class="label" for="email">Email Address : 
+                        <input type="email" id="email" name="email" class="form-control form-control-alternative" placeholder="123@example.com" value="<?php echo $row['email']; ?>" > </label>
                       </div>
 
                       <div class="row">
-                        <label class="form-control-label" for="email">Phone Number</label><br>
-                        <input type="phone" id="phone" name="phone" class="form-control form-control-alternative" placeholder="011-12345677" value="<?php echo $row['phone']; ?>" >
+                        <label class="label" for="email">Phone Number : 
+                        <input type="phone" id="phone" name="phone" class="form-control form-control-alternative" placeholder="011-12345677" value="<?php echo $row['phone']; ?>" > </label>
                       </div>
 
                       <button type="submit" class="editbtn" name="update">Update</a></button>

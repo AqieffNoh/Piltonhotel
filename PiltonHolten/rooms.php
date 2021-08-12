@@ -135,8 +135,12 @@
 </div>
 </body>
 
-<footer>
+<!-- <footer>
     <h1 style=" font: size 1000px; ">Foot.</h1>
-</footer>
+</footer> -->
 
 </html>
+
+<?php
+include "footer.php";
+?>

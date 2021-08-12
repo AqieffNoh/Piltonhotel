@@ -62,7 +62,7 @@
                             <div class="form-group">
                                 <label>Room Type</label>
                                 <input type="number" name="roomtypeID" value="<?php echo $row['roomtype_id']; ?>" class="form-control" placeholder="Enter Room Type">
-                                <h6>Room type is limited to: <br> 1-Deluxe <br> 2-Double Deluxe</h6>
+                                <h6>Room type is limited to: <br> 3- Queen Deluxe <br> 4-Twin Deluxe<br> 5- Suite <br> 6-Penthouse<br> 7-Twin Single room </h6>
                             </div>
                         </div>
                             <a href="index.php?page=hotelrooms" class="btn btn-danger">Cancel</a>

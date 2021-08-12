@@ -38,6 +38,10 @@ echo '<p>seller. login failed!</p>';
         </div>
         </section>
 
+        <div class="card-header py-3" style="text-align: center; background-color: white;">
+            <h4 class="m-0 font-weight-bold text-primary" style="position:center;">Pilton's Rooms
+            </h4>
+        </div>
     <section class="card-flex-container">
             <?php
 
@@ -67,7 +71,7 @@ echo '<p>seller. login failed!</p>';
     <div id=wrapper>
     <div class="container-fluid">
     <div class="shadow mb-4">
-        <div class="card-header py-3">
+        <div class="card-header py-3" style="text-align: center;">
             <h4 class="m-0 font-weight-bold text-primary" style="position:center;">Pilton's Activities
             </h4>
         </div>

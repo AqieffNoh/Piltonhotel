@@ -151,7 +151,7 @@ button:hover {
                   
                 <div class="form-group">
                         <label class="form-control-label" for="input-email">Email Address</label>
-                        <input type="email" id="email" name="email"class="form-control form-control-alternative" style="width: 50%;" placeholder="123@example.com" value="<?php echo $row['s_email']; ?>" required>
+                        <input type="email" id="email" name="email"class="form-control form-control-alternative" style="width: 50%;" placeholder="123@example.com" value="<?php echo $row['s_email']; ?>" readonly required>
                       </div>
 
                       <div class="form-group">

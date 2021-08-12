@@ -37,7 +37,10 @@
 		<!--This will show the name, email, etc. that is stored in $user_data php variable-->
 		
 	<!-------------------------------------------------------------------------------------------------------------------------------------------->
-	
+	<div class="card-header py-3" style="text-align: center; background-color: white;">
+            <h4 class="m-0 font-weight-bold text-primary" style="position:center;">Pilton's Rooms
+            </h4>
+        </div>
         <section class="card-flex-container">
             <?php
 
@@ -102,7 +105,9 @@
 	</main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
-<footer>
-    <h1>Foot.</h1>
-</footer>
+
 </html>
+
+<?php 
+include "footer.php";
+?>

@@ -30,8 +30,8 @@
 <div id=wrapper>
 <div class="container-fluid" style="position: absolute; width: 100%; height: 100%;">
     <div > 
-        <div class="card-header py-12">
-            <h4 class="m-0 font-weight-bold text-primary">Events
+        <div class="card-header py-12" style="text-align: center;">
+            <h4 class="m-0 font-weight-bold text-primary" >Events
             </h4>
         </div>
 

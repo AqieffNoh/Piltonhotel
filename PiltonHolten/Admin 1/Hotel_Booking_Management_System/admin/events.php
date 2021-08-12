@@ -17,19 +17,19 @@
 
         <div class="form-group">
             <label>Name</label>
-            <input type="text" name="Name" class="form-control" placeholder="Enter Name">
+            <input type="text" name="Name" class="form-control" placeholder="Enter Name" required>
         </div>
         <div class="form-group">
             <label>Description</label>
-            <textarea name="Description" cols = "40" rows="4" class="form-control" placeholder="Enter Description"></textarea>
+            <textarea name="Description" cols = "40" rows="4" class="form-control" placeholder="Enter Description" required></textarea>
         </div>
         <div class="form-group">
             <label>Picture</label>
-            <input type="file" name="image" class="form-control">
+            <input type="file" name="image" class="form-control" required>
         </div>
         <div class="form-group">
         <label>Date</label>
-            <input type="date" name="Date" class="form-control">
+            <input type="date" name="Date" class="form-control" required>
         </div>
       </div>
       <div class="modal-footer">

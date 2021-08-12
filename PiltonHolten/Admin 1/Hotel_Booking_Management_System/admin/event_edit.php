@@ -57,11 +57,11 @@
                             <input type="hidden" name="edit_id" value="<?php echo $row['EventID'] ?>">
                             <div class="form-group">
                                 <label>Name</label>
-                                <input type="text" name="edit_Name" value="<?php echo $row['Name'] ?>" class="form-control" placeholder="Enter Name">
+                                <input type="text" name="edit_Name" value="<?php echo $row['Name'] ?>" class="form-control" placeholder="Enter Name" required>
                             </div>
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea name="edit_Desc" cols = "40" rows="4" class="form-control" placeholder="Enter Description"><?php echo $row['Description'] ?></textarea>
+                                <textarea name="edit_Desc" cols = "40" rows="4" class="form-control" placeholder="Enter Description" required><?php echo $row['Description'] ?></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Picture</label>
@@ -71,7 +71,7 @@
                             </div>
                             <div class="form-group">
                             <label>Date</label>
-                                <input type="date" name="edit_Date" value="<?php echo $row['Date'] ?>" class="form-control">
+                                <input type="date" name="edit_Date" value="<?php echo $row['Date'] ?>" class="form-control" required>
                             </div>
                             <br>
                             <a href="index.php?page=events" class="btn btn-danger">Cancel</a>
