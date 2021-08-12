@@ -95,6 +95,6 @@ button:hover {
 
 
 <?php
-    require "footer.php";
+    include_once "footer.php";
 ?>
 

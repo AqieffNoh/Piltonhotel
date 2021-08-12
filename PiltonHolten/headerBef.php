@@ -191,6 +191,7 @@
                         <form class="modal-content animate" action="includes/s_login.inc.php" method="post">
                         <div class="sl-container">
                             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close">&times;</span>
+							<a href="register.php">Join us become a seller?</a>
                             <h3> Seller Login</h3>
                         </div>
                     
@@ -203,15 +204,18 @@
                             
                             <button type="submit" name="login_submit" id="loginbtn" href="">Login</button>
 
+							
+
                         </div>
                     
                         <div class="sl-container" style="background-color:#f1f1f1">
                             <button1 type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button1>
+							
                         </div>
                         </form>
                     </div>
 
-                    <a href="register.php">Request as a seller</a>
+                    <!-- <a href="register.php">Request as a seller</a> -->
                 </div>
             </div>
 

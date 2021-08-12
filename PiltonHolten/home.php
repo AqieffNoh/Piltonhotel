@@ -32,7 +32,7 @@ echo '<p>seller. login failed!</p>';
 ?>
         <section class="header">
             <div class="text-box">
-		<h1>Pilton Hotel</h1>
+		<h1 style="color: white;">Pilton Hotel</h1>
 		<br>
 		<p>Hello, Welcome to Pilton Hotel</p>
         </div>

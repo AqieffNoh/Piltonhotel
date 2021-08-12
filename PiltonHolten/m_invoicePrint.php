@@ -3,8 +3,8 @@
     include "includes/dbh.inc.php";
 ?>
 <main>
-
-<meta charset="utf-8" />
+<!-- 
+<meta charset="utf-8" /> -->
 <title>Merch Invoice Printing</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -197,8 +197,13 @@
 					<td>Total: RM<?php echo $row['amount']?></td>
 				</tr>
 			</table>
-            <button onclick="window.print();" class="btn btn-primary" id="print-btn">Print</button>
             </div>
         
-      
+      <section>
+	  <div>
+
+		<button onclick="window.print();" >Print</button>
+		<a href="userProfile.php">Back</a>
+		</div>
+	  </section>
 </main>

@@ -29,7 +29,7 @@
 
             <section class="header">
             <div class="text-box">
-                <h1>Pilton Hotel</h1>
+                <h1 style="color: white;">Pilton Hotel</h1>
                 <p>Hello, <?php echo $user_data['fname']; ?> <?php echo $user_data['lname']; ?>. Start booking now!</p>  
             </div>
             </section>
